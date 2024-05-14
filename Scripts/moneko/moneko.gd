@@ -6,13 +6,18 @@ const jump_velocity = -400.0
 @onready var sprite: Sprite2D = $moneko
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
-@export var speed = 3
+@export var speed: int = 3
 @export_range(0, 1) var lerp_factor = 0.15
+@export var vida = 3
+@export var max_vida = 3
 
 var jumpping: bool = false
 var running: bool = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	var direcao = position.x
+	direcao = Global.position_player
 
 func _physics_process(delta):
 	# gravidade
@@ -20,7 +25,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# pulo
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("pulo") and is_on_floor():
 		velocity.y = jump_velocity
 		
 	# movimentação pra esquerda e direita

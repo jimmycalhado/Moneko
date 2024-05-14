@@ -9,6 +9,21 @@ size = Vector2(24, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o3qu"]
 size = Vector2(25, 28)
 
+[sub_resource type="Animation" id="Animation_4fmck"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moneko:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_y3jwm"]
 resource_name = "idle"
 length = 0.4
@@ -24,21 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4fmck"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("moneko:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_uertu"]
@@ -84,6 +84,7 @@ _data = {
 }
 
 [node name="Moneko" type="CharacterBody2D" groups=["heroi"]]
+position = Vector2(0, -16)
 script = ExtResource("1_gk6ue")
 
 [node name="moneko" type="Sprite2D" parent="."]
