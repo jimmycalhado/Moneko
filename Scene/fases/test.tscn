@@ -173,10 +173,13 @@ layer_0/tile_data = PackedInt32Array(458754, 196608, 5, 393218, 196608, 4, 39321
 position = Vector2(95, 55)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Moneko"]
+position = Vector2(0, -35)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(95, 55)
+position = Vector2(95, 20)
+limit_left = -300
+editor_draw_limits = true
 
 [node name="Caenha" parent="." instance=ExtResource("2_6yxws")]
 position = Vector2(405, 160)
