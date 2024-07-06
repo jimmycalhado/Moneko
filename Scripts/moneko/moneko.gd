@@ -6,6 +6,7 @@ const jump_velocity = -400.0
 @onready var sprite: Sprite2D = $moneko
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
+
 @export var speed: int = 3
 @export_range(0, 1) var lerp_factor = 0.15
 @export var vida = 3
@@ -61,3 +62,13 @@ func rotate_sprite() -> void:
 		sprite.flip_h = false
 	elif velocity.x < 0:
 		sprite.flip_h = true
+
+
+
+
+
+func _on_hut_body_entered(body):
+	if body.is_in_group("inimigos"):
+		vida -= 1
+		if vida == 0:
+			queue_free()
