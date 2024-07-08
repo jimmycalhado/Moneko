@@ -41,7 +41,7 @@ func rotate_sprite() -> void:
 		sprite.flip_h = true
 
 func on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("heroi"):
+	if body.is_in_group("player"):
 		velocity.x = -1 * speed * 100
 		animation.play("run")
 	return
