@@ -1,4 +1,4 @@
-class_name  Player
+class_name Player
 extends CharacterBody2D
 
 const jump_velocity = -400.0
@@ -64,11 +64,10 @@ func rotate_sprite() -> void:
 		sprite.flip_h = true
 
 
-
-
-
 func _on_hut_body_entered(body):
 	if body.is_in_group("inimigos"):
 		vida -= 1
+		velocity.y = jump_velocity
+		velocity.x =  -1 * jump_velocity
 		if vida == 0:
 			queue_free()
