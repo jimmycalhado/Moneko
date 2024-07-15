@@ -9,8 +9,8 @@ const jump_velocity = -400.0
 
 @export var speed: int = 3
 @export_range(0, 1) var lerp_factor = 0.15
-@export var vida = 3
-@export var max_vida = 3
+@export var vida:int = 3
+@export var max_vida:int = 3
 
 var jumpping: bool = false
 var running: bool = false

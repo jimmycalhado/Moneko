@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0ajsj0kh2ul3"]
+[gd_scene load_steps=10 format=3 uid="uid://c0ajsj0kh2ul3"]
 
 [ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="1_ccw36"]
 [ext_resource type="Texture2D" uid="uid://f6hadn8mb1ya" path="res://Sprites/tile/TileMundo1/Background/Clouds 1/1.png" id="1_r8oyx"]
 [ext_resource type="PackedScene" uid="uid://h8wq4tffwxkq" path="res://Scene/personagens/inimigos/Caenha/caenha.tscn" id="2_6yxws"]
 [ext_resource type="Texture2D" uid="uid://dc6vvjfqlt1c4" path="res://Sprites/tile/TileMundo1/Cenario/tile_map_world_1.png" id="2_eseti"]
 [ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="3_p0q8r"]
+[ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="6_p2qu3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w3he4"]
 
@@ -187,3 +188,6 @@ position = Vector2(405, 160)
 [node name="Cenarrot" parent="." instance=ExtResource("3_p0q8r")]
 position = Vector2(206, 168)
 autoplay = "default"
+
+[node name="Espinho" parent="." instance=ExtResource("6_p2qu3")]
+position = Vector2(262, 138)
