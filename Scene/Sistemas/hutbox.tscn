@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/sistema/hutbox.gd" id="1_ghbh4"]
 
-[node name="hurtbox" type="Area2D"]
+[node name="hurtbox" type="Area2D" groups=["hutbox"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ghbh4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

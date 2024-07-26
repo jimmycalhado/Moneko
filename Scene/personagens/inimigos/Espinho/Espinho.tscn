@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://18owsdhy0rdv" path="res://Sprites/personagens/inimigos/Espinharal/Espinharal-Sheet.png" id="1_wc6ch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc53r"]
-size = Vector2(26, 24)
+size = Vector2(26, 28)
 
 [sub_resource type="Animation" id="Animation_r0rl6"]
 resource_name = "IDLE"
@@ -57,7 +57,6 @@ texture = ExtResource("1_wc6ch")
 hframes = 3
 
 [node name="FisicMundo" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_cc53r")
 debug_color = Color(0.271737, 0.626516, 0.256596, 0.537255)
 
