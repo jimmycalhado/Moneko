@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://xrgotcegwjtk" path="res://Sprites/personagens/moneko/moelho-Sheet.png" id="1_bl86s"]
 [ext_resource type="Script" path="res://Scripts/moneko/moneko.gd" id="1_gk6ue"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj4rq"]
-size = Vector2(24, 23)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m85r"]
+size = Vector2(24, 21.2963)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o3qu"]
-size = Vector2(25, 28)
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6g8l"]
+radius = 10.4839
 
 [sub_resource type="Animation" id="Animation_4fmck"]
 length = 0.001
@@ -83,28 +83,36 @@ _data = {
 "run": SubResource("Animation_72f4i")
 }
 
-[node name="Moneko" type="CharacterBody2D" groups=["heroi"]]
+[node name="Moneko" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -16)
+collision_mask = 23
 script = ExtResource("1_gk6ue")
 
 [node name="moneko" type="Sprite2D" parent="."]
 texture = ExtResource("1_bl86s")
 hframes = 10
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="fisicaMundo" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+scale = Vector2(1, 1.08)
+shape = SubResource("RectangleShape2D_6m85r")
+debug_color = Color(0, 0.6, 0.247059, 0.0352941)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_dj4rq")
-debug_color = Color(0, 0.6, 0.701961, 0.164706)
+[node name="hut" type="Area2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(1, 1.2)
+collision_layer = 0
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2)
-shape = SubResource("RectangleShape2D_1o3qu")
+[node name="colisionHut" type="CollisionShape2D" parent="hut"]
+scale = Vector2(1.24, 0.920001)
+shape = SubResource("CircleShape2D_p6g8l")
 debug_color = Color(0.894118, 0.215686, 0.6, 0.196078)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bchwp")
 }
-autoplay = "idle"
+autoplay = "RESET"
+
+[connection signal="body_entered" from="hut" to="." method="_on_hut_body_entered"]

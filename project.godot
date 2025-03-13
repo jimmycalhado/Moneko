@@ -22,7 +22,6 @@ Global="*res://Scripts/sistema/global.gd"
 
 window/size/viewport_width=600
 window/size/viewport_height=320
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [input]
@@ -35,6 +34,15 @@ pulo={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(337, 14),"global_position":Vector2(341, 55),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="world"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="items"
+2d_physics/layer_5="hitbox"
+2d_physics/layer_6="hurtbox"
 
 [rendering]
 

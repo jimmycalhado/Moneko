@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfsym6s1xnebt"
-path="res://.godot/imported/moelho-Sheet.png-d70bd2d71ebb9d3ca0226650502ad208.ctex"
+uid="uid://jcc2wl1dbq81"
+path="res://.godot/imported/boss1.png-40eca6544f16c595cf878b3b3032897d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/personagens/inimigos/moelho-Sheet.png"
-dest_files=["res://.godot/imported/moelho-Sheet.png-d70bd2d71ebb9d3ca0226650502ad208.ctex"]
+source_file="res://Sprites/personagens/inimigos/Boos1/boss1.png"
+dest_files=["res://.godot/imported/boss1.png-40eca6544f16c595cf878b3b3032897d.ctex"]
 
 [params]
 
