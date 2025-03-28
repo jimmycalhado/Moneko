@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4dehcipu5abk"]
+
+[ext_resource type="Texture2D" uid="uid://7srt32s0sfpc" path="res://Sprites/personagens/inimigos/Emburrako/bullet-Sheet.png" id="1_adqvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brvdt"]
+atlas = ExtResource("1_adqvq")
+region = Rect2(0, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6llf"]
+atlas = ExtResource("1_adqvq")
+region = Rect2(6, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua5eg"]
+atlas = ExtResource("1_adqvq")
+region = Rect2(12, 0, 6, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1okbq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brvdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6llf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua5eg")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1okbq")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.368322
