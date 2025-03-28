@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cucc0jfd68rtj"]
 
-[ext_resource type="Script" path="res://Scripts/inimigos/Espinho/espinho.gd" id="1_c3ogb"]
+[ext_resource type="Script" uid="uid://ky3och7crj8e" path="res://Scripts/inimigos/Espinho/espinho.gd" id="1_c3ogb"]
 [ext_resource type="Texture2D" uid="uid://18owsdhy0rdv" path="res://Sprites/personagens/inimigos/Espinharal/Espinharal-Sheet.png" id="1_wc6ch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc53r"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qirke"]
 _data = {
-"IDLE": SubResource("Animation_r0rl6"),
-"RESET": SubResource("Animation_evtaf")
+&"IDLE": SubResource("Animation_r0rl6"),
+&"RESET": SubResource("Animation_evtaf")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdjjn"]

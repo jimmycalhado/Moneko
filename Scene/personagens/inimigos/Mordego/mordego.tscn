@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://crj7ptl7mdaws"]
 
-[ext_resource type="Script" path="res://Scripts/inimigos/Mordego/mordego.gd" id="1_u7udy"]
+[ext_resource type="Script" uid="uid://b1s0y1dk4jpy2" path="res://Scripts/inimigos/Mordego/mordego.gd" id="1_u7udy"]
 [ext_resource type="Texture2D" uid="uid://b7nkdrwv77pgo" path="res://Sprites/personagens/inimigos/Mordego/mordego-Sheet.png" id="1_vg51a"]
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="2_d61r7"]
 [ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="4_nsxee"]
@@ -136,8 +136,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yjirp"]
 _data = {
-"RESET": SubResource("Animation_xgyop"),
-"fly": SubResource("Animation_tmuo8")
+&"RESET": SubResource("Animation_xgyop"),
+&"fly": SubResource("Animation_tmuo8")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yede6"]
