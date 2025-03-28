@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ogmn4jjrmlq"]
+[gd_scene load_steps=11 format=3 uid="uid://6ogmn4jjrmlq"]
 
 [ext_resource type="Texture2D" uid="uid://dag5qqdcovj7g" path="res://Sprites/personagens/inimigos/Emburrako/Emburrako-Sheet.png" id="1_3ns3k"]
+[ext_resource type="Script" path="res://Scripts/inimigos/Emburrako/emburrako.gd" id="1_e1lvf"]
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="2_ueyrs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w32ou"]
@@ -225,6 +226,7 @@ size = Vector2(32, 17)
 size = Vector2(30, 3)
 
 [node name="Emburrako" type="CharacterBody2D"]
+script = ExtResource("1_e1lvf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
