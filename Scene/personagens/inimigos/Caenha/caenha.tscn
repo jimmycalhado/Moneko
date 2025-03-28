@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://h8wq4tffwxkq"]
 
 [ext_resource type="Texture2D" uid="uid://bababdqp885ws" path="res://Sprites/personagens/inimigos/Caenha/caenha.png" id="1_2biph"]
-[ext_resource type="Script" path="res://Scripts/inimigos/Caenha/caenha.gd" id="1_qpe10"]
+[ext_resource type="Script" uid="uid://cntdvy028tinh" path="res://Scripts/inimigos/Caenha/caenha.gd" id="1_qpe10"]
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="3_cpm1o"]
 [ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="4_f8cj0"]
 
@@ -62,9 +62,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ell5k"]
 _data = {
-"RESET": SubResource("Animation_eqgj2"),
-"idle": SubResource("Animation_dmi5o"),
-"run": SubResource("Animation_gfokf")
+&"RESET": SubResource("Animation_eqgj2"),
+&"idle": SubResource("Animation_dmi5o"),
+&"run": SubResource("Animation_gfokf")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_empjq"]

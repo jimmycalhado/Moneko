@@ -30,14 +30,14 @@ func _physics_process(delta):
 		# pulo
 		if Input.is_action_just_pressed("pulo") and is_on_floor():
 			velocity.y = jump_velocity
-			
+
 		# movimentação pra esquerda e direita
 		var direction = Input.get_axis("ui_left", "ui_right")
 		var target_velocity = direction * speed * 100
-		
+
 		# deslizamento
 		velocity.x = lerp(velocity.x, target_velocity,lerp_factor)
-		
+
 		# tipo de animação
 		if direction:
 			running = true
@@ -76,10 +76,10 @@ func _on_hut_body_entered(body):
 			vivo = false;
 			visible = false
 			$Reset.start(0)
-			
+
 
 
 func _on_timer_timeout():
 	get_tree().reload_current_scene()
-	
+
 	pass # Replace with function body.

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://g0j2plpdk1f4"]
 
 [ext_resource type="Texture2D" uid="uid://xrgotcegwjtk" path="res://Sprites/personagens/moneko/moelho-Sheet.png" id="1_bl86s"]
-[ext_resource type="Script" path="res://Scripts/moneko/moneko.gd" id="1_gk6ue"]
+[ext_resource type="Script" uid="uid://b6cihkyvqvxwc" path="res://Scripts/moneko/moneko.gd" id="1_gk6ue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6m85r"]
 size = Vector2(24, 21.2963)
@@ -77,10 +77,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bchwp"]
 _data = {
-"RESET": SubResource("Animation_4fmck"),
-"idle": SubResource("Animation_y3jwm"),
-"jump": SubResource("Animation_uertu"),
-"run": SubResource("Animation_72f4i")
+&"RESET": SubResource("Animation_4fmck"),
+&"idle": SubResource("Animation_y3jwm"),
+&"jump": SubResource("Animation_uertu"),
+&"run": SubResource("Animation_72f4i")
 }
 
 [node name="Moneko" type="CharacterBody2D" groups=["player"]]
