@@ -62,4 +62,3 @@ func perseguir():
 		if velocity.x == 0:
 			animation.play("idle")
 		return
-
