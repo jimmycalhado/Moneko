@@ -112,4 +112,9 @@ position = Vector2(97, 174)
 autoplay = "default"
 
 [node name="Emburrako" parent="." instance=ExtResource("5_thmm8")]
-position = Vector2(310, 147)
+position = Vector2(247, 176)
+rotation = -0.707362
+
+[node name="Emburrako2" parent="." instance=ExtResource("5_thmm8")]
+position = Vector2(387, 182)
+rotation = -0.687883

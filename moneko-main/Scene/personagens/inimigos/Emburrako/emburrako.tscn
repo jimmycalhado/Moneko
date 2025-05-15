@@ -236,10 +236,11 @@ _data = {
 radius = 187.011
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yjl0w"]
-size = Vector2(32, 6)
+size = Vector2(32, 20)
 
 [node name="Emburrako" type="CharacterBody2D" groups=["inimigos"]]
 position = Vector2(0, -8)
+rotation = -0.0127003
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_e1lvf")
@@ -261,12 +262,13 @@ libraries = {
 autoplay = "idle"
 
 [node name="spawnBullet" type="Marker2D" parent="."]
-position = Vector2(4, -1)
+position = Vector2(0, -9)
 
 [node name="detectarPlayer" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectarPlayer"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_w32ou")
 debug_color = Color(0.388235, 0.580392, 0.533333, 0.243137)
 
@@ -274,7 +276,7 @@ debug_color = Color(0.388235, 0.580392, 0.533333, 0.243137)
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -9)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_yjl0w")
 
 [connection signal="body_entered" from="detectarPlayer" to="." method="_on_detectar_player_body_entered"]
