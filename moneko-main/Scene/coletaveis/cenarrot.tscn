@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm4hcp1b407wl"]
+
+[ext_resource type="Texture2D" uid="uid://k45y6mhkqyf0" path="res://Sprites/coletaveis/CenarrotNormal/Cenarrot-Sheet.png" id="1_7oe8m"]
+[ext_resource type="Script" uid="uid://q36g1ig7ev7k" path="res://Scripts/coletaveis/cenarrot.gd" id="2_p815o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33vpt"]
+atlas = ExtResource("1_7oe8m")
+region = Rect2(0, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vftv"]
+atlas = ExtResource("1_7oe8m")
+region = Rect2(32, 0, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ojjm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33vpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vftv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixbsg"]
+radius = 16.0312
+
+[node name="Cenarrot" type="AnimatedSprite2D"]
+z_index = -1
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_1ojjm")
+frame_progress = 0.848929
+script = ExtResource("2_p815o")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ixbsg")

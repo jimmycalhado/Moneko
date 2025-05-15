@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://h8wq4tffwxkq"]
+
+[ext_resource type="Texture2D" uid="uid://bababdqp885ws" path="res://Sprites/personagens/inimigos/Caenha/caenha.png" id="1_2biph"]
+[ext_resource type="Script" uid="uid://cntdvy028tinh" path="res://Scripts/inimigos/Caenha/caenha.gd" id="1_qpe10"]
+[ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="3_cpm1o"]
+[ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="4_f8cj0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3brf4"]
+radius = 103.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym3gv"]
+size = Vector2(25.5, 27)
+
+[sub_resource type="Animation" id="Animation_eqgj2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("caenha:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dmi5o"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("caenha:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gfokf"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("caenha:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ell5k"]
+_data = {
+&"RESET": SubResource("Animation_eqgj2"),
+&"idle": SubResource("Animation_dmi5o"),
+&"run": SubResource("Animation_gfokf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_empjq"]
+size = Vector2(24, 3.5)
+
+[node name="Caenha" type="CharacterBody2D" groups=["inimigos"]]
+position = Vector2(0, -16)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_qpe10")
+speed = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="detectaPlayer" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_3brf4")
+debug_color = Color(0.835294, 0.384314, 0.14902, 0.0901961)
+
+[node name="caenha" type="Sprite2D" parent="."]
+texture = ExtResource("1_2biph")
+hframes = 8
+
+[node name="colission" type="CollisionShape2D" parent="."]
+position = Vector2(0.75, 1.5)
+shape = SubResource("RectangleShape2D_ym3gv")
+debug_color = Color(0.176471, 0.564706, 0.823529, 0.180392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ell5k")
+}
+autoplay = "idle"
+
+[node name="hitbox" parent="." instance=ExtResource("3_cpm1o")]
+position = Vector2(0.75, -11.625)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0.25, -2.125)
+shape = SubResource("RectangleShape2D_empjq")
+
+[node name="hurtbox" parent="." instance=ExtResource("4_f8cj0")]
+position = Vector2(0.75, -11.625)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
