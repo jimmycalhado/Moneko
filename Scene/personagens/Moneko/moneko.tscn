@@ -111,7 +111,7 @@ debug_color = Color(0.894118, 0.215686, 0.6, 0.196078)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bchwp")
+&"": SubResource("AnimationLibrary_bchwp")
 }
 autoplay = "RESET"
 

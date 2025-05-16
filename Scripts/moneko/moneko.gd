@@ -18,6 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var vivo = true
 
 func _ready():
+	Global.set("Player",self)
 	var direcao = position.x
 	direcao = Global.position_player
 
@@ -66,8 +67,18 @@ func rotate_sprite() -> void:
 		sprite.flip_h = true
 
 
-func _on_hut_body_entered(body):
+func _on_hut_body_entered(body, area: Area2D):
 	if body.is_in_group("inimigos"):
+		vida -= 1
+		velocity.y = jump_velocity
+		velocity.x =  -1 * jump_velocity
+		print("dano")
+		if vida == 0:
+			vivo = false;
+			visible = false
+			$Reset.start(0)
+	if area.is_in_group("bullet"):
+		area.queue_free()
 		vida -= 1
 		velocity.y = jump_velocity
 		velocity.x =  -1 * jump_velocity
@@ -78,8 +89,11 @@ func _on_hut_body_entered(body):
 			$Reset.start(0)
 
 
-
 func _on_timer_timeout():
 	get_tree().reload_current_scene()
 
 	pass # Replace with function body.
+
+
+func _on_hut_area_entered() -> void:
+	pass
