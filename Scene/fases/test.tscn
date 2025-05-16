@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0ajsj0kh2ul3"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ajsj0kh2ul3"]
 
 [ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="1_ccw36"]
 [ext_resource type="PackedScene" uid="uid://cfgcudfasuiua" path="res://Scene/Sistemas/game_ui.tscn" id="1_dscn3"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="3_p0q8r"]
 [ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="6_p2qu3"]
 [ext_resource type="PackedScene" uid="uid://crj7ptl7mdaws" path="res://Scene/personagens/inimigos/Mordego/mordego.tscn" id="7_bs8ou"]
-[ext_resource type="PackedScene" uid="uid://6ogmn4jjrmlq" path="res://Scene/personagens/inimigos/Emburrako/emburrako.tscn" id="8_hmdme"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w3he4"]
 
@@ -125,6 +124,3 @@ position = Vector2(262, 138)
 
 [node name="Mordego" parent="." instance=ExtResource("7_bs8ou")]
 position = Vector2(160, 66)
-
-[node name="Emburrako" parent="." instance=ExtResource("8_hmdme")]
-position = Vector2(-184, 186)
