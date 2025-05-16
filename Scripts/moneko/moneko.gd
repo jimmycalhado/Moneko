@@ -16,11 +16,12 @@ var jumpping: bool = false
 var running: bool = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var vivo = true
-
+		
 func _ready():
 	Global.set("Player",self)
 	var direcao = position.x
 	direcao = Global.position_player
+	GameManage.player = self 
 
 func _physics_process(delta):
 	if vivo:
@@ -67,7 +68,7 @@ func rotate_sprite() -> void:
 		sprite.flip_h = true
 
 
-func _on_hut_body_entered(body, area: Area2D):
+func _on_hut_body_entered(body):
 	if body.is_in_group("inimigos"):
 		vida -= 1
 		velocity.y = jump_velocity
@@ -77,6 +78,17 @@ func _on_hut_body_entered(body, area: Area2D):
 			vivo = false;
 			visible = false
 			$Reset.start(0)
+			GameManage._reset()
+
+
+
+func _on_timer_timeout():
+	get_tree().reload_current_scene()
+
+	pass # Replace with function body.
+
+
+func _on_hut_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		area.queue_free()
 		vida -= 1
@@ -87,13 +99,4 @@ func _on_hut_body_entered(body, area: Area2D):
 			vivo = false;
 			visible = false
 			$Reset.start(0)
-
-
-func _on_timer_timeout():
-	get_tree().reload_current_scene()
-
-	pass # Replace with function body.
-
-
-func _on_hut_area_entered() -> void:
-	pass
+			GameManage._reset()

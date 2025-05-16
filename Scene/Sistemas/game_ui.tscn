@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfgcudfasuiua"]
+[gd_scene load_steps=13 format=3 uid="uid://cfgcudfasuiua"]
 
 [ext_resource type="Texture2D" uid="uid://c7o6yugcq7yfe" path="res://Sprites/hud/life.png" id="1_4b4b4"]
 [ext_resource type="FontFile" uid="uid://cp70kbjkvhh3l" path="res://Sprites/hud/Daydream.ttf" id="1_44fsc"]
+[ext_resource type="Script" uid="uid://yl6k8f2tnsfe" path="res://Scripts/sistema/game_ui.gd" id="1_di4wn"]
 [ext_resource type="Texture2D" uid="uid://b80ha3molqkmb" path="res://Sprites/hud/cenouraGOLD-HUD-Sheet.png" id="3_p4fi2"]
 [ext_resource type="Texture2D" uid="uid://dyqfunk4131ki" path="res://Sprites/hud/cenoura-HUD.png" id="4_fiwob"]
 
@@ -256,6 +257,7 @@ _data = {
 }
 
 [node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_di4wn")
 
 [node name="vida" type="Panel" parent="."]
 offset_left = 10.0
