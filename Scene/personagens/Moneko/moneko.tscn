@@ -117,5 +117,6 @@ autoplay = "RESET"
 
 [node name="Reset" type="Timer" parent="."]
 
+[connection signal="area_entered" from="hut" to="." method="_on_hut_area_entered"]
 [connection signal="body_entered" from="hut" to="." method="_on_hut_body_entered"]
 [connection signal="timeout" from="Reset" to="." method="_on_timer_timeout"]
