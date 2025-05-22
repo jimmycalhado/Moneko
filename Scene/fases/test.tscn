@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0ajsj0kh2ul3"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ajsj0kh2ul3"]
 
 [ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="1_ccw36"]
 [ext_resource type="PackedScene" uid="uid://cfgcudfasuiua" path="res://Scene/Sistemas/game_ui.tscn" id="1_dscn3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dc6vvjfqlt1c4" path="res://Sprites/tile/TileMundo1/Cenario/tile_map_world_1.png" id="2_eseti"]
 [ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="5_by0cu"]
 [ext_resource type="PackedScene" uid="uid://bt2r4g3ed6jpr" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="6_5dbdi"]
+[ext_resource type="PackedScene" uid="uid://6ogmn4jjrmlq" path="res://Scene/personagens/inimigos/Emburrako/emburrako.tscn" id="7_hmdme"]
+[ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="8_dscn3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w3he4"]
 
@@ -114,3 +116,9 @@ position = Vector2(215, 242)
 
 [node name="Cenarrot_gold3" parent="." instance=ExtResource("6_5dbdi")]
 position = Vector2(263, 246)
+
+[node name="Emburrako" parent="." instance=ExtResource("7_hmdme")]
+position = Vector2(87, 280)
+
+[node name="Espinho" parent="." instance=ExtResource("8_dscn3")]
+position = Vector2(16, 286)
