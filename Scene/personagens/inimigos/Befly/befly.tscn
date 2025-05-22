@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bktacxjgxeqbu"]
+
+[ext_resource type="Texture2D" uid="uid://18odg5i3l4hm" path="res://Sprites/personagens/inimigos/Befly/befly-Sheet.png" id="1_u5chh"]
+[ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="2_ngsvm"]
+[ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="3_ffbrb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h54ar"]
+radius = 103.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr8ar"]
+size = Vector2(25.5, 27)
+
+[sub_resource type="Animation" id="Animation_vwh1i"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("befly:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a1106"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("befly:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pid18"]
+_data = {
+&"RESET": SubResource("Animation_a1106"),
+&"new_animation": SubResource("Animation_vwh1i")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbrof"]
+size = Vector2(24, 3.5)
+
+[node name="befly" type="CharacterBody2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="detectaPlayer" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_h54ar")
+debug_color = Color(0.835294, 0.384314, 0.14902, 0.0901961)
+
+[node name="befly" type="Sprite2D" parent="."]
+texture = ExtResource("1_u5chh")
+
+[node name="colission" type="CollisionShape2D" parent="."]
+position = Vector2(0.75, 1.5)
+shape = SubResource("RectangleShape2D_qr8ar")
+debug_color = Color(0.176471, 0.564706, 0.823529, 0.180392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pid18")
+}
+
+[node name="hitbox" parent="." instance=ExtResource("2_ngsvm")]
+position = Vector2(0.75, -11.625)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0.25, -2.125)
+shape = SubResource("RectangleShape2D_lbrof")
+
+[node name="hurtbox" parent="." instance=ExtResource("3_ffbrb")]
+position = Vector2(0.75, -11.625)
