@@ -11,6 +11,7 @@ const jump_velocity = -400.0
 @export_range(0, 1) var lerp_factor = 0.15
 @export var vida:int = 3
 @export var max_vida:int = 3
+@export var min_vida:int = 0
 
 var jumpping: bool = false
 var running: bool = false
@@ -21,7 +22,9 @@ func _ready():
 	Global.set("Player",self)
 	var direcao = position.x
 	direcao = Global.position_player
-	GameManage.player = self 
+	GameManage.player = self
+	if vida <= 0:
+		vida = 0;
 
 func _physics_process(delta):
 	if vivo:
@@ -73,12 +76,11 @@ func _on_hut_body_entered(body):
 		vida -= 1
 		velocity.y = jump_velocity
 		velocity.x =  -1 * jump_velocity
-		print("dano")
 		if vida == 0:
 			vivo = false;
-			visible = false
-			$Reset.start(0)
-			GameManage._reset()
+			visible = false;
+			$Reset.start(0);
+			GameManage._reset();
 
 
 
@@ -97,6 +99,7 @@ func _on_hut_area_entered(area: Area2D) -> void:
 		print("dano")
 		if vida == 0:
 			vivo = false;
-			visible = false
-			$Reset.start(0)
-			GameManage._reset()
+			visible = false;
+			$Reset.start(0);
+			GameManage._reset();
+			

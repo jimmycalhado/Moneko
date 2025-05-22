@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://dul5cuisn4awx"]
+
+[ext_resource type="Texture2D" uid="uid://bmdsvyn73e2ir" path="res://Sprites/tile/TileMundo1/Background/nuuvens pequena.png" id="1_h4gey"]
+[ext_resource type="Texture2D" uid="uid://bsj28qn5hp6x6" path="res://Sprites/tile/TileMundo1/Background/nuuvens grandes.png" id="2_bcuvg"]
+[ext_resource type="Texture2D" uid="uid://dchet2us0y77f" path="res://Sprites/tile/TileMundo1/Background/morros.png" id="3_b4gjq"]
+[ext_resource type="Texture2D" uid="uid://d08xxiswx2xwa" path="res://Sprites/tile/TileMundo1/Background/fundo.png" id="3_p4d3j"]
+[ext_resource type="Texture2D" uid="uid://cwt0eu6n166xf" path="res://Sprites/tile/TileMundo1/Background/arvore grande.png" id="4_v2h66"]
+
+[node name="ParallaxBackground" type="Node2D"]
+
+[node name="ceu" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(600, 0)
+repeat_times = 3
+
+[node name="ceu" type="Sprite2D" parent="ceu"]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("3_p4d3j")
+centered = false
+
+[node name="nuvens pequeno" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(600, 0)
+autoscroll = Vector2(-5, 0)
+repeat_times = 3
+
+[node name="nuvens pequeno2" type="Sprite2D" parent="nuvens pequeno"]
+position = Vector2(304, 106)
+texture = ExtResource("1_h4gey")
+centered = false
+
+[node name="nuvens pequeno" type="Sprite2D" parent="nuvens pequeno"]
+texture = ExtResource("1_h4gey")
+centered = false
+
+[node name="morro_atras" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.15, 1)
+scroll_offset = Vector2(300, 129)
+repeat_size = Vector2(600, 0)
+repeat_times = 3
+
+[node name="morro" type="Sprite2D" parent="morro_atras"]
+texture = ExtResource("3_b4gjq")
+
+[node name="arvore" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(1200, 0)
+
+[node name="arvore" type="Sprite2D" parent="arvore"]
+texture = ExtResource("4_v2h66")
+centered = false
+
+[node name="nuvens grandes" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(600, 0)
+autoscroll = Vector2(-10, 0)
+repeat_times = 3
+
+[node name="nuvens grandes2" type="Sprite2D" parent="nuvens grandes"]
+position = Vector2(-214, -119)
+texture = ExtResource("2_bcuvg")
+centered = false
+
+[node name="nuvens grandes" type="Sprite2D" parent="nuvens grandes"]
+position = Vector2(11, 14)
+texture = ExtResource("2_bcuvg")
+centered = false
+
+[node name="morro_frente" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 1)
+scroll_offset = Vector2(300, 160)
+repeat_size = Vector2(600, 0)
+repeat_times = 3
+
+[node name="morro" type="Sprite2D" parent="morro_frente"]
+texture = ExtResource("3_b4gjq")

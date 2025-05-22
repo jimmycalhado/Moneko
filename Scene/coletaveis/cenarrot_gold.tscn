@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt2r4g3ed6jpr"]
+
+[ext_resource type="Texture2D" uid="uid://cttbw0cqk22gm" path="res://Sprites/coletaveis/CenarrotGold/Cenarrot_Gold-Sheet.png" id="1_yoshj"]
+[ext_resource type="Script" uid="uid://p8a8iy418378" path="res://Scripts/coletaveis/cenarrot_gold.gd" id="2_i0nhu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ya0p"]
+atlas = ExtResource("1_yoshj")
+region = Rect2(0, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri7bd"]
+atlas = ExtResource("1_yoshj")
+region = Rect2(32, 0, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ojjm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ya0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri7bd")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixbsg"]
+radius = 16.0312
+
+[node name="Cenarrot_gold" type="AnimatedSprite2D"]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_1ojjm")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.892546
+script = ExtResource("2_i0nhu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ixbsg")
