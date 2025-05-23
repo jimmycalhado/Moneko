@@ -12,7 +12,7 @@ var player = Player
 
 func _process(delta:float):
 	carrot_label.text = str(GameManage.carrot_counter);
-	vida_label.text = str(GameManage.player.vida);
+	vida_label.text = str(GameManage.vida);
 	if GameManage.carrotgold_counter == 1:
 		frame1.set_frame(0);
 	if GameManage.carrotgold_counter == 2:

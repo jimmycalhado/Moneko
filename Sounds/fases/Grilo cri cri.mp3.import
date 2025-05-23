@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5mxg0i8qyvv0"
+path="res://.godot/imported/Grilo cri cri.mp3-2641cbbff611466b81664df2625990e8.mp3str"
+
+[deps]
+
+source_file="res://Sounds/fases/Grilo cri cri.mp3"
+dest_files=["res://.godot/imported/Grilo cri cri.mp3-2641cbbff611466b81664df2625990e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

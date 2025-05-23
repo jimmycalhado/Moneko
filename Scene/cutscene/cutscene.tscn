@@ -1,0 +1,477 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2rvo5m3j4umi"]
+
+[ext_resource type="Script" uid="uid://cueb4l5uq5pnd" path="res://Scripts/sistema/cutscene.gd" id="1_2em23"]
+[ext_resource type="PackedScene" uid="uid://dul5cuisn4awx" path="res://Scene/Sistemas/parallax_background1.tscn" id="1_j30hn"]
+[ext_resource type="PackedScene" uid="uid://dmn03v70se0j7" path="res://Scene/Sistemas/tile_map.tscn" id="2_yyk07"]
+[ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="3_rybom"]
+[ext_resource type="PackedScene" uid="uid://boldibwbbket3" path="res://Scene/personagens/inimigos/Rafox/rafox.tscn" id="3_yyk07"]
+[ext_resource type="Texture2D" uid="uid://bn5nbsnfaa6er" path="res://Sprites/tile/iluminação/luz.png" id="4_524cd"]
+[ext_resource type="AudioStream" uid="uid://c5mxg0i8qyvv0" path="res://Sounds/fases/Grilo cri cri.mp3" id="4_ykktt"]
+[ext_resource type="AudioStream" uid="uid://cdhnw7x5bnb4r" path="res://Sounds/fases/motor_carro.mp3" id="5_r5mce"]
+[ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="6_5v5vf"]
+[ext_resource type="AudioStream" uid="uid://clnqx1rbt4yen" path="res://Sounds/fases/Mystical_Magical_fase.mp3" id="6_r5mce"]
+
+[sub_resource type="Animation" id="Animation_rybom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rafox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-177, 256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.196078, 0.0666667, 0.411765, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.294744, 0.125201, 0.530007, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cenarrot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-179, 259)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cenarrot2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-179, 259)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cenarrot3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-179, 259)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Moneko:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-507, 271)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 161)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D:zoom")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("sons/grilo:stream")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ykktt")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sons/grilo:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sons/motor:stream")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_r5mce")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("sons/motor:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("sons/musica:stream")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_r5mce")]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("sons/musica:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_524cd"]
+resource_name = "cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rafox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5, 3.51),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-177, 256), Vector2(700, 256), Vector2(692, 412)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.196078, 0.0666667, 0.411765, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.294744, 0.125201, 0.530007, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cenarrot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 2.13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-179, 259), Vector2(537, 262)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cenarrot2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1.66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-179, 259), Vector2(331, 260)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cenarrot3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1.21),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-179, 259), Vector2(134, 258)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Moneko:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.01, 4.46667, 7.86667, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-507, 272), Vector2(-79, 273), Vector2(678, 273), Vector2(1400, 273)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6.13333, 7.43333, 7.83333, 9.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 161), Vector2(600, 161), Vector2(678, 260), Vector2(1200, 260)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D:zoom")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(7.43333, 8.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("sons/grilo:stream")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ykktt")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sons/grilo:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sons/motor:stream")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.73),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_r5mce")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("sons/motor:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.73, 2.48),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("sons/musica:stream")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_r5mce")]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("sons/musica:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(3.03333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5v5vf"]
+_data = {
+&"RESET": SubResource("Animation_rybom"),
+&"cutscene": SubResource("Animation_524cd")
+}
+
+[node name="cutscene" type="Node2D"]
+script = ExtResource("1_2em23")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.196078, 0.0666667, 0.411765, 1)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_j30hn")]
+modulate = Color(0.294744, 0.125201, 0.530007, 1)
+
+[node name="TileMap" parent="." instance=ExtResource("2_yyk07")]
+layer_0/tile_data = PackedInt32Array(655345, 262144, 4, 720881, 262144, 5, 589849, 262144, 4, 655385, 262144, 5, 655346, 262144, 4, 720882, 262144, 5, 720883, 262144, 5, 655347, 262144, 4, 655348, 262144, 4, 720884, 262144, 5, 720885, 262144, 5, 655349, 262144, 4, 655350, 262144, 4, 720886, 262144, 5, 720887, 262144, 5, 655351, 262144, 4, 655352, 262144, 4, 720888, 262144, 5, 720889, 262144, 5, 655353, 262144, 4, 655354, 262144, 4, 720890, 262144, 5, 720891, 262144, 5, 655355, 262144, 4, 655356, 262144, 4, 720892, 262144, 5, 720893, 262144, 5, 655357, 262144, 4, 655358, 262144, 4, 720894, 262144, 5, 720895, 262144, 5, 655359, 262144, 4, 589824, 262144, 4, 655360, 262144, 5, 655361, 262144, 5, 589825, 262144, 4, 589826, 262144, 4, 655362, 262144, 5, 655363, 262144, 5, 589827, 262144, 4, 589828, 262144, 4, 655364, 262144, 5, 655365, 262144, 5, 589829, 262144, 4, 589830, 262144, 4, 655366, 262144, 5, 655367, 262144, 5, 589831, 262144, 4, 589832, 262144, 4, 655368, 262144, 5, 655369, 262144, 5, 589833, 262144, 4, 589834, 262144, 4, 655370, 262144, 5, 655371, 262144, 5, 589835, 262144, 4, 589836, 262144, 4, 655372, 262144, 5, 655373, 262144, 5, 589837, 262144, 4, 589838, 262144, 4, 655374, 262144, 5, 655375, 262144, 5, 589839, 262144, 4, 589840, 262144, 4, 655376, 262144, 5, 655377, 262144, 5, 589841, 262144, 4, 589842, 262144, 4, 655378, 262144, 5, 655379, 262144, 5, 589843, 262144, 4, 589844, 262144, 4, 655380, 262144, 5, 655381, 262144, 5, 589845, 262144, 4, 589846, 262144, 4, 655382, 262144, 5, 655383, 262144, 5, 589847, 262144, 4, 589848, 262144, 4, 655384, 262144, 5, 589850, 262144, 4, 655386, 262144, 5, 655387, 262144, 5, 589851, 262144, 4, 589852, 262144, 4, 655388, 262144, 5, 655389, 262144, 5, 589853, 262144, 4, 589854, 262144, 4, 655390, 262144, 5, 655391, 262144, 5, 589855, 262144, 4, 589856, 262144, 4, 655392, 262144, 5, 655393, 262144, 5, 589857, 262144, 4, 589858, 262144, 4, 655394, 262144, 5, 655395, 262144, 5, 589859, 262144, 4, 589860, 262144, 4, 655396, 262144, 5, 655397, 262144, 5, 589861, 262144, 4, 589862, 262144, 4, 655398, 262144, 5, 655399, 262144, 5, 589863, 262144, 4, 589864, 262144, 4, 655400, 262144, 5, 655401, 262144, 5, 589865, 262144, 4, 589866, 262144, 4, 655402, 262144, 5, 655403, 262144, 5, 589867, 262144, 4, 589868, 262144, 4, 655404, 262144, 5, 655405, 262144, 5, 589869, 262144, 4, 589870, 262144, 4, 655406, 262144, 5, 655407, 262144, 5, 589871, 262144, 4, 589872, 262144, 4, 655408, 262144, 5, 655409, 262144, 5, 589873, 262144, 4, 589874, 262144, 4, 655410, 262144, 5, 655411, 262144, 5, 589875, 262144, 4, 720880, 262144, 5, 720879, 262144, 5, 720878, 262144, 5, 720877, 262144, 5, 720876, 262144, 5, 655340, 262144, 4, 655341, 262144, 4, 655342, 262144, 4, 655343, 262144, 4, 655344, 262144, 4)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5v5vf")
+}
+autoplay = "cutscene"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(300, 161)
+
+[node name="Cenarrot" parent="." instance=ExtResource("3_rybom")]
+position = Vector2(-179, 259)
+
+[node name="Cenarrot2" parent="." instance=ExtResource("3_rybom")]
+position = Vector2(-179, 259)
+
+[node name="Cenarrot3" parent="." instance=ExtResource("3_rybom")]
+position = Vector2(-179, 259)
+
+[node name="Rafox" parent="." instance=ExtResource("3_yyk07")]
+position = Vector2(-177, 256)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" parent="Rafox" index="0"]
+flip_h = true
+
+[node name="AnimationPlayer" parent="Rafox" index="3"]
+autoplay = "run_cenoura"
+
+[node name="PointLight2D" type="PointLight2D" parent="Rafox"]
+color = Color(1, 1, 1, 0.498039)
+texture = ExtResource("4_524cd")
+texture_scale = 2.0
+
+[node name="Moneko" parent="." instance=ExtResource("6_5v5vf")]
+position = Vector2(-507, 271)
+
+[node name="AnimationPlayer" parent="Moneko" index="3"]
+autoplay = "run"
+
+[node name="sons" type="Node2D" parent="."]
+
+[node name="musica" type="AudioStreamPlayer2D" parent="sons"]
+stream = ExtResource("6_r5mce")
+
+[node name="grilo" type="AudioStreamPlayer" parent="sons"]
+stream = ExtResource("4_ykktt")
+volume_db = -26.773
+
+[node name="motor" type="AudioStreamPlayer2D" parent="sons"]
+stream = ExtResource("5_r5mce")
+volume_db = 3.691
+
+[editable path="Rafox"]
+[editable path="Moneko"]

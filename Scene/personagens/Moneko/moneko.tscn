@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://g0j2plpdk1f4"]
+[gd_scene load_steps=11 format=3 uid="uid://g0j2plpdk1f4"]
 
 [ext_resource type="Texture2D" uid="uid://xrgotcegwjtk" path="res://Sprites/personagens/moneko/moelho-Sheet.png" id="1_bl86s"]
 [ext_resource type="Script" uid="uid://b6cihkyvqvxwc" path="res://Scripts/moneko/moneko.gd" id="1_gk6ue"]
+[ext_resource type="PackedScene" uid="uid://dbuesnbqb75nf" path="res://Scene/Sistemas/reset.tscn" id="3_n7d46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6m85r"]
-size = Vector2(24, 21.2963)
+size = Vector2(24, 22.2222)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6g8l"]
 radius = 10.4839
@@ -85,7 +86,7 @@ _data = {
 
 [node name="Moneko" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -16)
-collision_mask = 23
+collision_mask = 55
 script = ExtResource("1_gk6ue")
 
 [node name="moneko" type="Sprite2D" parent="."]
@@ -93,7 +94,7 @@ texture = ExtResource("1_bl86s")
 hframes = 10
 
 [node name="fisicaMundo" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(0, 4)
 scale = Vector2(1, 1.08)
 shape = SubResource("RectangleShape2D_6m85r")
 debug_color = Color(0, 0.6, 0.247059, 0.0352941)
@@ -115,8 +116,17 @@ libraries = {
 }
 autoplay = "RESET"
 
-[node name="Reset" type="Timer" parent="."]
+[node name="Reset" parent="." instance=ExtResource("3_n7d46")]
+
+[node name="Ray_right" type="RayCast2D" parent="."]
+position = Vector2(11, 3)
+target_position = Vector2(8, 0)
+collision_mask = 4
+
+[node name="Ray_left" type="RayCast2D" parent="."]
+position = Vector2(-11, 3)
+target_position = Vector2(-8, 0)
+collision_mask = 4
 
 [connection signal="area_entered" from="hut" to="." method="_on_hut_area_entered"]
 [connection signal="body_entered" from="hut" to="." method="_on_hut_body_entered"]
-[connection signal="timeout" from="Reset" to="." method="_on_timer_timeout"]

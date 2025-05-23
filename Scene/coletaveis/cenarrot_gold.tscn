@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bt2r4g3ed6jpr"]
 
 [ext_resource type="Texture2D" uid="uid://cttbw0cqk22gm" path="res://Sprites/coletaveis/CenarrotGold/Cenarrot_Gold-Sheet.png" id="1_yoshj"]
-[ext_resource type="Script" uid="uid://p8a8iy418378" path="res://Scripts/coletaveis/cenarrot_gold.gd" id="2_i0nhu"]
+[ext_resource type="Script" path="res://Scripts/coletaveis/cenarrot_gold.gd" id="2_i0nhu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ya0p"]
 atlas = ExtResource("1_yoshj")
