@@ -4,9 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="2_ngsvm"]
 [ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="3_ffbrb"]
 
+<<<<<<< Updated upstream
 [sub_resource type="CircleShape2D" id="CircleShape2D_h54ar"]
 radius = 103.005
 
+=======
+>>>>>>> Stashed changes
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr8ar"]
 size = Vector2(25.5, 27)
 
@@ -47,11 +50,19 @@ _data = {
 &"new_animation": SubResource("Animation_vwh1i")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5chh"]
+size = Vector2(302.001, 616.999)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbrof"]
+<<<<<<< Updated upstream
 size = Vector2(24, 3.5)
+=======
+size = Vector2(27, 4)
+>>>>>>> Stashed changes
 
 [node name="befly" type="CharacterBody2D"]
 
+<<<<<<< Updated upstream
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="detectaPlayer" type="CollisionShape2D" parent="Area2D"]
@@ -60,6 +71,9 @@ shape = SubResource("CircleShape2D_h54ar")
 debug_color = Color(0.835294, 0.384314, 0.14902, 0.0901961)
 
 [node name="befly" type="Sprite2D" parent="."]
+=======
+[node name="befly" type="Sprite2D" parent="." groups=["inimigos"]]
+>>>>>>> Stashed changes
 texture = ExtResource("1_u5chh")
 hframes = 4
 
@@ -73,14 +87,30 @@ libraries = {
 &"": SubResource("AnimationLibrary_pid18")
 }
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="detectaPlayer" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-311, -1)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_u5chh")
+debug_color = Color(0.835294, 0.384314, 0.14902, 0.0901961)
+
 [node name="hitbox" parent="." instance=ExtResource("2_ngsvm")]
 position = Vector2(0.75, -11.625)
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+<<<<<<< Updated upstream
 position = Vector2(0.25, -2.125)
+=======
+position = Vector2(0.75, 10.625)
+>>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_lbrof")
 
 [node name="hurtbox" parent="." instance=ExtResource("3_ffbrb")]
+visible = false
 position = Vector2(0.75, -11.625)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
