@@ -1,9 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cucc0jfd68rtj"]
+[gd_scene load_steps=7 format=3 uid="uid://cucc0jfd68rtj"]
 
 [ext_resource type="Script" uid="uid://ky3och7crj8e" path="res://Scripts/inimigos/Espinho/espinho.gd" id="1_c3ogb"]
 [ext_resource type="Texture2D" uid="uid://18owsdhy0rdv" path="res://Sprites/personagens/inimigos/Espinharal/Espinharal-Sheet.png" id="1_wc6ch"]
-[ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="3_ec3i0"]
-[ext_resource type="Script" uid="uid://7c0kmeww44j6" path="res://Scripts/sistema/hitbox.gd" id="3_n61ta"]
 
 [sub_resource type="Animation" id="Animation_r0rl6"]
 resource_name = "IDLE"
@@ -43,21 +41,14 @@ _data = {
 &"RESET": SubResource("Animation_evtaf")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke7cy"]
-size = Vector2(14, 13)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdjjn"]
 size = Vector2(30, 30)
 
-[node name="Espinho" type="CharacterBody2D" groups=["inimigos"]]
+[node name="Espinho" type="Area2D" groups=["espinho"]]
 position = Vector2(0, 1)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_c3ogb")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wc6ch")
-hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -66,18 +57,10 @@ libraries = {
 autoplay = "IDLE"
 speed_scale = 2.0
 
-[node name="FisicMundo" type="CollisionShape2D" parent="." groups=["inimigos"]]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_ke7cy")
-debug_color = Color(0.248231, 0.547972, 0.85911, 0.537255)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wc6ch")
+hframes = 3
 
-[node name="hurtbox" parent="." groups=["espinho"] instance=ExtResource("3_ec3i0")]
-
-[node name="HurtboxShape" type="CollisionShape2D" parent="hurtbox" groups=["espinho"]]
+[node name="HurtboxShape" type="CollisionShape2D" parent="." groups=["espinho"]]
 shape = SubResource("RectangleShape2D_vdjjn")
 debug_color = Color(0.898039, 0.270588, 0.427451, 0.419608)
-
-[node name="hitbox" type="Area2D" parent="." groups=["espinho"]]
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("3_n61ta")

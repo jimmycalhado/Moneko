@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://g0j2plpdk1f4"]
+[gd_scene load_steps=14 format=3 uid="uid://g0j2plpdk1f4"]
 
 [ext_resource type="Texture2D" uid="uid://xrgotcegwjtk" path="res://Sprites/personagens/moneko/moelho-Sheet.png" id="1_bl86s"]
 [ext_resource type="Script" uid="uid://b6cihkyvqvxwc" path="res://Scripts/moneko/moneko.gd" id="1_gk6ue"]
+[ext_resource type="PackedScene" uid="uid://cfushdmccxy25" path="res://Scene/Sistemas/smoke.tscn" id="2_v4471"]
 [ext_resource type="PackedScene" uid="uid://dbuesnbqb75nf" path="res://Scene/Sistemas/reset.tscn" id="3_n7d46"]
+[ext_resource type="AudioStream" uid="uid://2sken5s51ig7" path="res://Sounds/effects/hit_moneko.mp3" id="5_h0d3k"]
+[ext_resource type="AudioStream" uid="uid://dfihl8bj8b5uu" path="res://Sounds/effects/game_over.mp3" id="6_h0d3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6m85r"]
 size = Vector2(24, 22.2222)
@@ -88,6 +91,7 @@ _data = {
 position = Vector2(0, -16)
 collision_mask = 55
 script = ExtResource("1_gk6ue")
+smoke_scene = ExtResource("2_v4471")
 
 [node name="moneko" type="Sprite2D" parent="."]
 texture = ExtResource("1_bl86s")
@@ -118,15 +122,11 @@ autoplay = "RESET"
 
 [node name="Reset" parent="." instance=ExtResource("3_n7d46")]
 
-[node name="Ray_right" type="RayCast2D" parent="."]
-position = Vector2(11, 3)
-target_position = Vector2(8, 0)
-collision_mask = 4
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h0d3k")
 
-[node name="Ray_left" type="RayCast2D" parent="."]
-position = Vector2(-11, 3)
-target_position = Vector2(-8, 0)
-collision_mask = 4
+[node name="game_over" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_h0d3k")
 
 [connection signal="area_entered" from="hut" to="." method="_on_hut_area_entered"]
 [connection signal="body_entered" from="hut" to="." method="_on_hut_body_entered"]

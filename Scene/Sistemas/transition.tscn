@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cboqmb73h2vcp"]
+
+[ext_resource type="Script" uid="uid://dwjyp33qtcn7c" path="res://Scripts/sistema/transition.gd" id="1_gf3m3"]
+[ext_resource type="Shader" uid="uid://cjksjyhtijt73" path="res://Shaders/transition.gdshader" id="2_tyc38"]
+[ext_resource type="Script" uid="uid://574csuryxa37" path="res://Scripts/sistema/color_rect_transition.gd" id="3_adyk2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_esmdi"]
+shader = ExtResource("2_tyc38")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 15.0
+
+[node name="transition" type="CanvasLayer"]
+script = ExtResource("1_gf3m3")
+
+[node name="color_rect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_esmdi")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.000870854, 0.218764, 0.389161, 1)
+script = ExtResource("3_adyk2")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://6ogmn4jjrmlq"]
+[gd_scene load_steps=12 format=3 uid="uid://6ogmn4jjrmlq"]
 
 [ext_resource type="Texture2D" uid="uid://dag5qqdcovj7g" path="res://Sprites/personagens/inimigos/Emburrako/Emburrako-Sheet.png" id="1_3ns3k"]
 [ext_resource type="Script" uid="uid://cwta3dkcrmw5f" path="res://Scripts/inimigos/Emburrako/emburrako.gd" id="1_e1lvf"]
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="2_ueyrs"]
+[ext_resource type="AudioStream" uid="uid://bnbnjkh1w136a" path="res://Sounds/effects/bullet.mp3" id="3_yjl0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jghml"]
 size = Vector2(30, 17)
@@ -80,6 +81,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_yjl0w")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6rwiq"]
@@ -224,6 +249,30 @@ tracks/4/keys = {
 "method": &"shoot"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_yjl0w")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kgl17"]
 _data = {
@@ -278,6 +327,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_yjl0w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yjl0w")
 
 [connection signal="body_entered" from="detectarPlayer" to="." method="_on_detectar_player_body_entered"]
 [connection signal="body_exited" from="detectarPlayer" to="." method="_on_detectar_player_body_exited"]

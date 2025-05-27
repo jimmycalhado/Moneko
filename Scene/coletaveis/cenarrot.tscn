@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm4hcp1b407wl"]
+[gd_scene load_steps=8 format=3 uid="uid://bm4hcp1b407wl"]
 
 [ext_resource type="Texture2D" uid="uid://k45y6mhkqyf0" path="res://Sprites/coletaveis/CenarrotNormal/Cenarrot-Sheet.png" id="1_7oe8m"]
 [ext_resource type="Script" uid="uid://q36g1ig7ev7k" path="res://Scripts/coletaveis/cenarrot.gd" id="2_p815o"]
+[ext_resource type="AudioStream" uid="uid://dfg80lu70uc7t" path="res://Sounds/effects/crunch_cenarrot.mp3" id="3_prg36"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33vpt"]
 atlas = ExtResource("1_7oe8m")
@@ -31,6 +32,7 @@ radius = 16.0312
 [node name="Cenarrot" type="AnimatedSprite2D"]
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_1ojjm")
+autoplay = "default"
 frame_progress = 0.848929
 script = ExtResource("2_p815o")
 
@@ -40,3 +42,6 @@ script = ExtResource("2_p815o")
 z_index = -1
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_ixbsg")
+
+[node name="crunch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_prg36")
