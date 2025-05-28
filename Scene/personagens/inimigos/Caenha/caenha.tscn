@@ -77,7 +77,7 @@ size = Vector2(24, 3.5)
 [node name="Caenha" type="CharacterBody2D" groups=["inimigos"]]
 position = Vector2(0, -16)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_qpe10")
 speed = 3
 

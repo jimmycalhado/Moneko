@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfushdmccxy25"]
 
 [ext_resource type="Texture2D" uid="uid://dpvrry4uaerws" path="res://Sprites/personagens/inimigos/foi/fumaça.png" id="1_xu6bp"]
-[ext_resource type="Script" uid="uid://yxb82no6x7vc" path="res://Scripts/sistema/smoke.gd" id="2_kfcx6"]
+[ext_resource type="Script" path="res://Scripts/sistema/smoke.gd" id="2_kfcx6"]
 [ext_resource type="AudioStream" uid="uid://was5d3daehbc" path="res://Sounds/effects/hit.mp3" id="2_xu6bp"]
 
 [sub_resource type="Animation" id="Animation_sullt"]
