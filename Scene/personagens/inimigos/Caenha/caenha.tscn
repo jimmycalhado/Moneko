@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://h8wq4tffwxkq"]
+[gd_scene load_steps=13 format=3 uid="uid://h8wq4tffwxkq"]
 
 [ext_resource type="Texture2D" uid="uid://bababdqp885ws" path="res://Sprites/personagens/inimigos/Caenha/caenha.png" id="1_2biph"]
 [ext_resource type="Script" uid="uid://cntdvy028tinh" path="res://Scripts/inimigos/Caenha/caenha.gd" id="1_qpe10"]
@@ -25,6 +25,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_jxql4"]
+resource_name = "die"
 
 [sub_resource type="Animation" id="Animation_dmi5o"]
 resource_name = "idle"
@@ -63,6 +66,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ell5k"]
 _data = {
 &"RESET": SubResource("Animation_eqgj2"),
+&"die": SubResource("Animation_jxql4"),
 &"idle": SubResource("Animation_dmi5o"),
 &"run": SubResource("Animation_gfokf")
 }
@@ -73,7 +77,7 @@ size = Vector2(24, 3.5)
 [node name="Caenha" type="CharacterBody2D" groups=["inimigos"]]
 position = Vector2(0, -16)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_qpe10")
 speed = 3
 
@@ -95,7 +99,7 @@ debug_color = Color(0.176471, 0.564706, 0.823529, 0.180392)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ell5k")
+&"": SubResource("AnimationLibrary_ell5k")
 }
 autoplay = "idle"
 

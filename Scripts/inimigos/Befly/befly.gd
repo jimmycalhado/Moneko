@@ -1,33 +1,33 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0 
-@export var detection_range: float = 200.0 
+@export var speed: float = 250.0
+@export var direction: Vector2 = Vector2.LEFT  # pode ser LEFT ou RIGHT, etc.
 
-var player: Node2D = null  
-var chasing: bool = false  
+@onready var Player = Global.get("player")
 
-@onready var raycast = $RayCast2D  
+var activated: bool = false
 
-func _process(delta):
-	if player and chasing:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
-		move_and_slide()
-
-func _on_DetectionArea_body_entered(body):
+func _on_player_detected(body):
 	if body.is_in_group("player"):
-		player = body
-		chasing = true
+		activated = true
+		look_at(body.global_position)
 
-func _on_DetectionArea_body_exited(body):
-	if body == player:
-		chasing = false
-		player = null
+func _on_area_2d_body_exited(body):
+	moving = false
+
+var direction: Vector2 = Vector2.LEFT
+var activated: bool = false
 
 func _physics_process(delta):
-	if player and chasing:
-		raycast.target_position = player.global_position - global_position
-		raycast.force_raycast_update()
-		
-		if raycast.is_colliding():
-			chasing = false  
+	if activated:
+		velocity.x = direction.normalized().x * speed
+	else:
+		velocity.x = 0
+
+
+	move_and_slide()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		activated = true
+		direction = (body.global_position - global_position).normalized()

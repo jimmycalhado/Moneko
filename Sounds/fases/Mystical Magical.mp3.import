@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c40tvxas7mhi"
+path="res://.godot/imported/Mystical Magical.mp3-db0d6f301b5751f1868a1c7337af20d4.mp3str"
+
+[deps]
+
+source_file="res://Sounds/fases/Mystical Magical.mp3"
+dest_files=["res://.godot/imported/Mystical Magical.mp3-db0d6f301b5751f1868a1c7337af20d4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
