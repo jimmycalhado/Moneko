@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bktacxjgxeqbu"]
+[gd_scene load_steps=11 format=3 uid="uid://bktacxjgxeqbu"]
 
 [ext_resource type="Script" uid="uid://drtaxeat6bpl8" path="res://Scripts/inimigos/Befly/befly.gd" id="1_ngsvm"]
 [ext_resource type="Texture2D" uid="uid://18odg5i3l4hm" path="res://Sprites/personagens/inimigos/Befly/befly-Sheet.png" id="1_u5chh"]
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="2_ngsvm"]
+[ext_resource type="PackedScene" uid="uid://gww6g6vxmb7t" path="res://Scene/Sistemas/hutbox.tscn" id="3_ffbrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5chh"]
+size = Vector2(302.001, 616.999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr8ar"]
 size = Vector2(31, 14)
@@ -69,16 +73,20 @@ _data = {
 &"new_animation": SubResource("Animation_vwh1i")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5chh"]
-size = Vector2(302.001, 616.999)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbrof"]
-size = Vector2(27, 2.75)
+size = Vector2(19, 2.75)
 
 [node name="befly" type="CharacterBody2D" groups=["inimigos"]]
 collision_layer = 4
-collision_mask = 0
 script = ExtResource("1_ngsvm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="detectaPlayer" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-284, 15)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_u5chh")
+debug_color = Color(0.835294, 0.384314, 0.14902, 0.0901961)
 
 [node name="befly" type="Sprite2D" parent="." groups=["inimigos"]]
 texture = ExtResource("1_u5chh")
@@ -95,20 +103,20 @@ libraries = {
 }
 autoplay = "new_animation"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="detectaPlayer" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-284, 15)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_u5chh")
-debug_color = Color(0.835294, 0.384314, 0.14902, 0.0901961)
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="hitbox" parent="." instance=ExtResource("2_ngsvm")]
 position = Vector2(0.75, -11.625)
 collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-0.25, 11)
+position = Vector2(-4.25, 11)
 shape = SubResource("RectangleShape2D_lbrof")
+
+[node name="hurtbox" parent="." instance=ExtResource("3_ffbrb")]
+visible = false
+position = Vector2(0.75, -11.625)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
