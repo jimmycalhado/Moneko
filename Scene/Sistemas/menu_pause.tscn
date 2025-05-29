@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://b135gwmxmj841"]
+
+[ext_resource type="Theme" uid="uid://bw2ey12y5j12q" path="res://fonts/styleFont/menu_pause.tres" id="1_4c0ns"]
+[ext_resource type="Script" uid="uid://d3tufqsb54vop" path="res://Scripts/sistema/menu_pause.gd" id="1_hx5ua"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_hx5ua"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_wg84n"]
+events = [SubResource("InputEventAction_hx5ua")]
+
+[node name="menuPause" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_hx5ua")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.227451)
+
+[node name="Menu_container" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="resumeBtn" type="Button" parent="Menu_container"]
+layout_mode = 2
+theme = ExtResource("1_4c0ns")
+shortcut = SubResource("Shortcut_wg84n")
+text = "Resume"
+
+[node name="restartBtn" type="Button" parent="Menu_container"]
+layout_mode = 2
+theme = ExtResource("1_4c0ns")
+text = "Restart"
+
+[node name="quitBtn" type="Button" parent="Menu_container"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_4c0ns")
+text = "Quit Game"
+
+[connection signal="pressed" from="Menu_container/resumeBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="Menu_container/restartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="Menu_container/quitBtn" to="." method="_on_quit_btn_pressed"]

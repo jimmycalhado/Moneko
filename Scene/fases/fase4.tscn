@@ -1,21 +1,24 @@
+
 [gd_scene load_steps=33 format=3 uid="uid://b6lv4fxvqbxgj"]
 
 [ext_resource type="Script" path="res://Scene/fases/test.gd" id="1_664a5"]
-[ext_resource type="PackedScene" uid="uid://dul5cuisn4awx" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_h77d4"]
-[ext_resource type="PackedScene" uid="uid://cfgcudfasuiua" path="res://Scene/Sistemas/game_ui.tscn" id="3_lrhpu"]
-[ext_resource type="PackedScene" uid="uid://dmn03v70se0j7" path="res://Scene/Sistemas/tile_map.tscn" id="4_yv0bw"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_h77d4"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/game_ui.tscn" id="3_lrhpu"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/tile_map.tscn" id="4_yv0bw"]
 [ext_resource type="Script" path="res://Scripts/sistema/goal.gd" id="5_u3amf"]
 [ext_resource type="Texture2D" uid="uid://b5dtnbb5y54m8" path="res://Sprites/coletaveis/Finalizador de fase/placa.png" id="6_j1bv2"]
 [ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="7_wwpy0"]
 [ext_resource type="AudioStream" uid="uid://cqmia3fd5stx2" path="res://Sounds/fases/fase1.wav" id="8_xln5u"]
-[ext_resource type="PackedScene" uid="uid://cfushdmccxy25" path="res://Scene/Sistemas/smoke.tscn" id="10_eleav"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/smoke.tscn" id="10_eleav"]
 [ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="11_4oufi"]
-[ext_resource type="PackedScene" uid="uid://bt2r4g3ed6jpr" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="12_4ylld"]
-[ext_resource type="PackedScene" uid="uid://c652oss1wska5" path="res://Scene/Sistemas/death_zone.tscn" id="13_fiyqn"]
+[ext_resource type="PackedScene" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="12_4ylld"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/death_zone.tscn" id="13_fiyqn"]
 [ext_resource type="Script" path="res://Scripts/sistema/transition.gd" id="17_kscag"]
 [ext_resource type="PackedScene" uid="uid://xjhir8gu3uao" path="res://Scene/Sistemas/fall_platform_medium.tscn" id="18_i0327"]
 [ext_resource type="Shader" uid="uid://cjksjyhtijt73" path="res://Shaders/transition.gdshader" id="18_lqqxb"]
+
 [ext_resource type="PackedScene" uid="uid://b2kvdm011d0iu" path="res://Scene/Sistemas/fall_platform_gigant.tscn" id="19_5al5e"]
+
 [ext_resource type="Script" path="res://Scripts/sistema/color_rect_transition.gd" id="19_xoylp"]
 [ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="20_7cenp"]
 [ext_resource type="PackedScene" uid="uid://crj7ptl7mdaws" path="res://Scene/personagens/inimigos/Mordego/mordego.tscn" id="20_a71cr"]
@@ -443,6 +446,8 @@ position = Vector2(6691, 247)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(1, 0.592332, 0.650087, 1)
+
+[node name="menuPause" parent="." instance=ExtResource("18_monvr")]
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 
