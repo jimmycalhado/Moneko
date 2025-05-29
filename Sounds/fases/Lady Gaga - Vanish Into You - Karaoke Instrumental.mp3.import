@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djwy3hvtv733r"
+path="res://.godot/imported/Lady Gaga - Vanish Into You - Karaoke Instrumental.mp3-088b1ec247a853e38c9581da91de470a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/fases/Lady Gaga - Vanish Into You - Karaoke Instrumental.mp3"
+dest_files=["res://.godot/imported/Lady Gaga - Vanish Into You - Karaoke Instrumental.mp3-088b1ec247a853e38c9581da91de470a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
