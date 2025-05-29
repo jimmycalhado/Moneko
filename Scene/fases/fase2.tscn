@@ -81,7 +81,7 @@ layer_0/tile_data = PackedInt32Array(458752, 262144, 4, 458753, 262144, 4, 45875
 position = Vector2(7627, 282)
 collision_layer = 2
 script = ExtResource("5_r2hk7")
-next_level = "res://Scene/Sistemas/startScreen.tscn"
+next_level = "res://Scene/fases/fase3.tscn"
 
 [node name="sprite" type="Sprite2D" parent="Goal"]
 texture = ExtResource("6_bwstm")
@@ -105,6 +105,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="Moneko"]
 color = Color(0.529067, 0.529067, 0.529067, 1)
 texture = ExtResource("9_q8nh6")
+texture_scale = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(103, 175)
