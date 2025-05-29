@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmtb7bq3u04u4"
+path="res://.godot/imported/Miley Cyrus - Used To Be Young (Karaoke Version).mp3-30e5679a681c635966ce02ee99649614.mp3str"
+
+[deps]
+
+source_file="res://Sounds/fases/Miley Cyrus - Used To Be Young (Karaoke Version).mp3"
+dest_files=["res://.godot/imported/Miley Cyrus - Used To Be Young (Karaoke Version).mp3-30e5679a681c635966ce02ee99649614.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

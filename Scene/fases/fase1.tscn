@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://barq23dayxg8e"]
+[gd_scene load_steps=32 format=3 uid="uid://barq23dayxg8e"]
 
 [ext_resource type="Script" uid="uid://b1qhnb7hs5hng" path="res://Scene/fases/test.gd" id="1_3cc14"]
 [ext_resource type="PackedScene" uid="uid://dul5cuisn4awx" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_6d30b"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" uid="uid://574csuryxa37" path="res://Scripts/sistema/color_rect_transition.gd" id="16_u2mxg"]
 [ext_resource type="PackedScene" uid="uid://bktacxjgxeqbu" path="res://Scene/personagens/inimigos/Befly/befly.tscn" id="17_mbu3e"]
 [ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="18_ii6vm"]
-[ext_resource type="PackedScene" uid="uid://gawvaxh1q4wr" path="res://Scene/personagens/inimigos/bilu/bilu_fogo.tscn" id="22_6ev0l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27wy8"]
 radius = 24.0208
@@ -348,7 +347,7 @@ position = Vector2(-664, 413.5)
 shape = SubResource("RectangleShape2D_ktl84")
 
 [node name="befly" parent="." instance=ExtResource("17_mbu3e")]
-position = Vector2(548, 203)
+position = Vector2(634, 275)
 
 [node name="parede invisivel" type="StaticBody2D" parent="."]
 position = Vector2(15, 2)
@@ -385,9 +384,6 @@ offset_top = 135.0
 offset_right = 6688.0
 offset_bottom = 369.0
 color = Color(0.240968, 0.250252, 0.400831, 0.375)
-
-[node name="bilu_fogo" parent="." instance=ExtResource("22_6ev0l")]
-position = Vector2(244, 277)
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 
