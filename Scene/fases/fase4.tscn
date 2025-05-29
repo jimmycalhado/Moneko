@@ -1,0 +1,215 @@
+[gd_scene load_steps=28 format=3 uid="uid://b6lv4fxvqbxgj"]
+
+[ext_resource type="Script" path="res://Scene/fases/test.gd" id="1_664a5"]
+[ext_resource type="PackedScene" uid="uid://dul5cuisn4awx" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_h77d4"]
+[ext_resource type="PackedScene" uid="uid://cfgcudfasuiua" path="res://Scene/Sistemas/game_ui.tscn" id="3_lrhpu"]
+[ext_resource type="PackedScene" uid="uid://dmn03v70se0j7" path="res://Scene/Sistemas/tile_map.tscn" id="4_yv0bw"]
+[ext_resource type="Script" path="res://Scripts/sistema/goal.gd" id="5_u3amf"]
+[ext_resource type="Texture2D" uid="uid://b5dtnbb5y54m8" path="res://Sprites/coletaveis/Finalizador de fase/placa.png" id="6_j1bv2"]
+[ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="7_wwpy0"]
+[ext_resource type="AudioStream" uid="uid://cqmia3fd5stx2" path="res://Sounds/fases/fase1.wav" id="8_xln5u"]
+[ext_resource type="PackedScene" uid="uid://cfushdmccxy25" path="res://Scene/Sistemas/smoke.tscn" id="10_eleav"]
+[ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="11_4oufi"]
+[ext_resource type="PackedScene" uid="uid://bt2r4g3ed6jpr" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="12_4ylld"]
+[ext_resource type="PackedScene" uid="uid://c652oss1wska5" path="res://Scene/Sistemas/death_zone.tscn" id="13_fiyqn"]
+[ext_resource type="Script" path="res://Scripts/sistema/transition.gd" id="17_kscag"]
+[ext_resource type="Shader" uid="uid://cjksjyhtijt73" path="res://Shaders/transition.gdshader" id="18_lqqxb"]
+[ext_resource type="Script" path="res://Scripts/sistema/color_rect_transition.gd" id="19_xoylp"]
+[ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="20_7cenp"]
+[ext_resource type="PackedScene" uid="uid://bktacxjgxeqbu" path="res://Scene/personagens/inimigos/Befly/befly.tscn" id="26_3ohhe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27wy8"]
+radius = 24.0208
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d30b"]
+size = Vector2(190, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2btn"]
+size = Vector2(158, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1odqq"]
+size = Vector2(124, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esmdi"]
+size = Vector2(222, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktl84"]
+size = Vector2(366, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cc14"]
+size = Vector2(210, 330)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_esmdi"]
+shader = ExtResource("18_lqqxb")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 15.0
+
+[sub_resource type="Shader" id="Shader_mbu3e"]
+code = "  shader_type canvas_item;
+
+    // Define a resolução da tela
+    uniform float resolution;
+
+    // Defina o raio do efeito de embaçamento
+    uniform float blur_radius = 10;
+
+    // Função de cálculo do efeito embaçado
+    void vertex() {
+        // Define a posição do vértice
+        VERTEX = vec2(position.x, position.y);
+    }
+
+    void fragment() {
+        // Cor da tela original
+        vec4 color = texture(TEXTURE, UV);
+
+        // Cálculo do efeito embaçado
+        vec4 blurred_color = vec4(0.0);
+        float weight_sum = 0.0;
+
+        // Loop para calcular o efeito embaçado
+        for(int i = -blur_radius; i <= blur_radius; i++) {
+            float weight = exp(-pow(i, 2.0) / (2.0 * pow(blur_radius, 2.0)));
+
+            vec2 offset = vec2(i / resolution, 0.0);
+            vec4 sampled_color = texture(TEXTURE, UV + offset);
+            blurred_color += sampled_color * weight;
+            weight_sum += weight;
+        }
+        blurred_color /= weight_sum;
+
+        // Defina a cor da tela
+        COLOR = blurred_color;
+    }"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hx157"]
+shader = SubResource("Shader_mbu3e")
+
+[node name="fase1" type="Node2D"]
+script = ExtResource("1_664a5")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_h77d4")]
+modulate = Color(0.577829, 0.215407, 0.100711, 1)
+
+[node name="GameUI" parent="." instance=ExtResource("3_lrhpu")]
+
+[node name="TileMap2" parent="." instance=ExtResource("4_yv0bw")]
+position = Vector2(0, 75)
+layer_0/modulate = Color(0.379829, 0.379121, 0.681107, 1)
+
+[node name="TileMap" parent="." instance=ExtResource("4_yv0bw")]
+position = Vector2(0, 75)
+layer_0/tile_data = PackedInt32Array(524286, 262144, 4, 524287, 262144, 4, 458752, 262144, 4, 458753, 262144, 4, 458754, 262144, 4, 458755, 262144, 4, 458756, 262144, 4, 458757, 196608, 5, 458758, 262144, 6, 458759, 262144, 6, 458760, 262144, 6, 458761, 262144, 6, 458762, 262144, 6, 458763, 262144, 6, 458764, 262144, 6, 458765, 262144, 6, 458766, 262144, 6, 458767, 262144, 6, 458768, 262144, 5, 458769, 262144, 5, 458770, 262144, 5, 458771, 262144, 5, 458772, 262144, 5, 393221, 196608, 4, 393222, 262144, 4, 393223, 262144, 4, 393224, 196608, 5, 393225, 262144, 5, 393226, 262144, 5, 393227, 262144, 5, 393228, 262144, 5, 393229, 262144, 5, 393230, 262144, 5, 393231, 262144, 5, 589822, 262144, 6, 589823, 262144, 6, 524288, 262144, 6, 524289, 262144, 6, 524290, 262144, 6, 524291, 262144, 6, 524292, 262144, 6, 524293, 262144, 6, 524294, 262144, 6, 524295, 262144, 6, 524296, 262144, 6, 524297, 262144, 6, 524298, 262144, 6, 524299, 262144, 6, 524300, 262144, 6, 524301, 262144, 6, 524302, 262144, 6, 524303, 262144, 6, 524304, 262144, 6, 524305, 262144, 6, 524306, 262144, 6, 524307, 262144, 6, 524308, 262144, 6, 589821, 262144, 6, 524285, 262144, 4, 327688, 196608, 4, 393232, 262144, 5, 327689, 262144, 4, 327690, 262144, 4, 327691, 262144, 4, 327692, 262144, 4, 327693, 262144, 4, 327694, 262144, 4, 327695, 262144, 4, 327696, 262144, 4, 327697, 262144, 4, 327698, 262144, 4, 327699, 262144, 4, 327700, 262144, 4, 327701, 327680, 4, 393237, 393216, 6, 458773, 393216, 6, 524309, 393216, 6, 393233, 262144, 6, 393234, 262144, 6, 393235, 262144, 6, 393236, 262144, 6)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(7152, 251)
+collision_layer = 2
+script = ExtResource("5_u3amf")
+next_level = "res://Scene/fases/fase2.tscn"
+
+[node name="sprite" type="Sprite2D" parent="Goal"]
+texture = ExtResource("6_j1bv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("CircleShape2D_27wy8")
+
+[node name="Moneko" parent="." instance=ExtResource("7_wwpy0")]
+position = Vector2(-26, 282)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Moneko"]
+position = Vector2(0, -100)
+remote_path = NodePath("../../Camera2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Moneko"]
+stream = ExtResource("8_xln5u")
+volume_db = -12.0
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-26, 182)
+limit_left = -60
+limit_top = 0
+limit_bottom = 0
+editor_draw_limits = true
+
+[node name="smoke" parent="." instance=ExtResource("10_eleav")]
+
+[node name="Cenarrot" parent="." instance=ExtResource("11_4oufi")]
+position = Vector2(115, 274)
+
+[node name="Cenarrot_gold" parent="." instance=ExtResource("12_4ylld")]
+position = Vector2(950, 165)
+
+[node name="death_zone" parent="." instance=ExtResource("13_fiyqn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
+position = Vector2(1984, 410)
+shape = SubResource("RectangleShape2D_6d30b")
+
+[node name="death_zone4" parent="." instance=ExtResource("13_fiyqn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone4"]
+position = Vector2(4912, 416.5)
+shape = SubResource("RectangleShape2D_i2btn")
+
+[node name="death_zone5" parent="." instance=ExtResource("13_fiyqn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone5"]
+position = Vector2(6752, 418)
+shape = SubResource("RectangleShape2D_1odqq")
+
+[node name="death_zone2" parent="." instance=ExtResource("13_fiyqn")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death_zone2"]
+position = Vector2(1424, 413)
+shape = SubResource("RectangleShape2D_esmdi")
+
+[node name="death_zone3" parent="." instance=ExtResource("13_fiyqn")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death_zone3"]
+position = Vector2(889, 346)
+shape = SubResource("RectangleShape2D_ktl84")
+
+[node name="befly" parent="." instance=ExtResource("26_3ohhe")]
+position = Vector2(1024, 158)
+
+[node name="parede invisivel" type="StaticBody2D" parent="."]
+position = Vector2(15, 2)
+collision_layer = 3
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parede invisivel"]
+light_mask = 2
+visibility_layer = 7
+position = Vector2(-180, 138)
+shape = SubResource("RectangleShape2D_3cc14")
+
+[node name="transition" type="CanvasLayer" parent="."]
+script = ExtResource("17_kscag")
+
+[node name="color_rect" type="ColorRect" parent="transition"]
+material = SubResource("ShaderMaterial_esmdi")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.000870854, 0.218764, 0.389161, 1)
+script = ExtResource("19_xoylp")
+
+[node name="Espinho" parent="." instance=ExtResource("20_7cenp")]
+position = Vector2(6906, 227)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hx157")
+offset_left = 4992.0
+offset_top = 135.0
+offset_right = 6688.0
+offset_bottom = 369.0
+color = Color(0.240968, 0.250252, 0.400831, 0.375)
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
+
+[editable path="death_zone2"]
+[editable path="death_zone3"]
