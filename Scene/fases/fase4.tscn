@@ -1,4 +1,5 @@
-[gd_scene load_steps=29 format=3 uid="uid://dnwscu6s8lo75"]
+
+[gd_scene load_steps=33 format=3 uid="uid://b6lv4fxvqbxgj"]
 
 [ext_resource type="Script" path="res://Scene/fases/test.gd" id="1_664a5"]
 [ext_resource type="PackedScene" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_h77d4"]
@@ -13,10 +14,18 @@
 [ext_resource type="PackedScene" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="12_4ylld"]
 [ext_resource type="PackedScene" path="res://Scene/Sistemas/death_zone.tscn" id="13_fiyqn"]
 [ext_resource type="Script" path="res://Scripts/sistema/transition.gd" id="17_kscag"]
+[ext_resource type="PackedScene" uid="uid://xjhir8gu3uao" path="res://Scene/Sistemas/fall_platform_medium.tscn" id="18_i0327"]
 [ext_resource type="Shader" uid="uid://cjksjyhtijt73" path="res://Shaders/transition.gdshader" id="18_lqqxb"]
-[ext_resource type="PackedScene" uid="uid://b135gwmxmj841" path="res://Scene/Sistemas/menu_pause.tscn" id="18_monvr"]
+
+[ext_resource type="PackedScene" uid="uid://b2kvdm011d0iu" path="res://Scene/Sistemas/fall_platform_gigant.tscn" id="19_5al5e"]
+
 [ext_resource type="Script" path="res://Scripts/sistema/color_rect_transition.gd" id="19_xoylp"]
 [ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="20_7cenp"]
+[ext_resource type="PackedScene" uid="uid://crj7ptl7mdaws" path="res://Scene/personagens/inimigos/Mordego/mordego.tscn" id="20_a71cr"]
+[ext_resource type="PackedScene" uid="uid://d174udcvv65m7" path="res://Scene/Sistemas/fall_platform_small.tscn" id="20_xln5u"]
+[ext_resource type="PackedScene" uid="uid://cke60xn2mqmeh" path="res://Scene/Sistemas/fall_platform_big.tscn" id="21_nt3k0"]
+[ext_resource type="PackedScene" uid="uid://6ogmn4jjrmlq" path="res://Scene/personagens/inimigos/Emburrako/emburrako.tscn" id="22_4nmmg"]
+[ext_resource type="PackedScene" uid="uid://h8wq4tffwxkq" path="res://Scene/personagens/inimigos/Caenha/caenha.tscn" id="22_nt3k0"]
 [ext_resource type="PackedScene" uid="uid://bktacxjgxeqbu" path="res://Scene/personagens/inimigos/Befly/befly.tscn" id="26_3ohhe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27wy8"]
@@ -26,16 +35,16 @@ radius = 24.0208
 size = Vector2(190, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2btn"]
-size = Vector2(158, 21)
+size = Vector2(2660, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1odqq"]
 size = Vector2(124, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esmdi"]
-size = Vector2(222, 30)
+size = Vector2(2235, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktl84"]
-size = Vector2(366, 23)
+size = Vector2(379, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cc14"]
 size = Vector2(210, 330)
@@ -44,47 +53,6 @@ size = Vector2(210, 330)
 shader = ExtResource("18_lqqxb")
 shader_parameter/progress = 0.0
 shader_parameter/diamondPixelSize = 15.0
-
-[sub_resource type="Shader" id="Shader_mbu3e"]
-code = "  shader_type canvas_item;
-
-    // Define a resolução da tela
-    uniform float resolution;
-
-    // Defina o raio do efeito de embaçamento
-    uniform float blur_radius = 10;
-
-    // Função de cálculo do efeito embaçado
-    void vertex() {
-        // Define a posição do vértice
-        VERTEX = vec2(position.x, position.y);
-    }
-
-    void fragment() {
-        // Cor da tela original
-        vec4 color = texture(TEXTURE, UV);
-
-        // Cálculo do efeito embaçado
-        vec4 blurred_color = vec4(0.0);
-        float weight_sum = 0.0;
-
-        // Loop para calcular o efeito embaçado
-        for(int i = -blur_radius; i <= blur_radius; i++) {
-            float weight = exp(-pow(i, 2.0) / (2.0 * pow(blur_radius, 2.0)));
-
-            vec2 offset = vec2(i / resolution, 0.0);
-            vec4 sampled_color = texture(TEXTURE, UV + offset);
-            blurred_color += sampled_color * weight;
-            weight_sum += weight;
-        }
-        blurred_color /= weight_sum;
-
-        // Defina a cor da tela
-        COLOR = blurred_color;
-    }"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hx157"]
-shader = SubResource("Shader_mbu3e")
 
 [node name="fase1" type="Node2D"]
 script = ExtResource("1_664a5")
@@ -100,10 +68,15 @@ layer_0/modulate = Color(0.379829, 0.379121, 0.681107, 1)
 
 [node name="TileMap" parent="." instance=ExtResource("4_yv0bw")]
 position = Vector2(0, 75)
-layer_0/tile_data = PackedInt32Array(524286, 262144, 4, 524287, 262144, 4, 458752, 262144, 4, 458753, 262144, 4, 458754, 262144, 4, 458755, 262144, 4, 458756, 262144, 4, 458757, 196608, 5, 458758, 262144, 6, 458759, 262144, 6, 458760, 262144, 6, 458761, 262144, 6, 458762, 262144, 6, 458763, 262144, 6, 458764, 262144, 6, 458765, 262144, 6, 458766, 262144, 6, 458767, 262144, 6, 458768, 262144, 5, 458769, 262144, 5, 458770, 262144, 5, 458771, 262144, 5, 458772, 262144, 5, 393221, 196608, 4, 393222, 262144, 4, 393223, 262144, 4, 393224, 196608, 5, 393225, 262144, 5, 393226, 262144, 5, 393227, 262144, 5, 393228, 262144, 5, 393229, 262144, 5, 393230, 262144, 5, 393231, 262144, 5, 589822, 262144, 6, 589823, 262144, 6, 524288, 262144, 6, 524289, 262144, 6, 524290, 262144, 6, 524291, 262144, 6, 524292, 262144, 6, 524293, 262144, 6, 524294, 262144, 6, 524295, 262144, 6, 524296, 262144, 6, 524297, 262144, 6, 524298, 262144, 6, 524299, 262144, 6, 524300, 262144, 6, 524301, 262144, 6, 524302, 262144, 6, 524303, 262144, 6, 524304, 262144, 6, 524305, 262144, 6, 524306, 262144, 6, 524307, 262144, 6, 524308, 262144, 6, 589821, 262144, 6, 524285, 262144, 4, 327688, 196608, 4, 393232, 262144, 5, 327689, 262144, 4, 327690, 262144, 4, 327691, 262144, 4, 327692, 262144, 4, 327693, 262144, 4, 327694, 262144, 4, 327695, 262144, 4, 327696, 262144, 4, 327697, 262144, 4, 327698, 262144, 4, 327699, 262144, 4, 327700, 262144, 4, 327701, 327680, 4, 393237, 393216, 6, 458773, 393216, 6, 524309, 393216, 6, 393233, 262144, 6, 393234, 262144, 6, 393235, 262144, 6, 393236, 262144, 6)
+layer_0/name = "Fundo"
+layer_0/tile_data = PackedInt32Array(327735, 0, 2, 85, 0, 0, 65621, 0, 2, 86, 65536, 0, 65622, 65536, 2, 87, 65536, 0, 65623, 65536, 2, 88, 65536, 0, 65624, 65536, 2, 89, 65536, 0, 65625, 65536, 2, 90, 65536, 0, 65626, 65536, 2, 91, 65536, 0, 65627, 65536, 2, 92, 131072, 0, 65628, 131072, 2, 262199, 0, 1, 196663, 0, 0, 262200, 65536, 1, 262201, 65536, 1, 262202, 65536, 1, 262203, 131072, 1, 327739, 131072, 1, 327736, 65536, 2, 327737, 65536, 2, 327738, 65536, 2, 196667, 131072, 0, 196666, 65536, 0, 196665, 65536, 0, 196664, 65536, 0, 393395, 0, 0, 458931, 0, 1, 524467, 0, 2, 393396, 65536, 0, 458932, 65536, 1, 524468, 65536, 2, 393397, 65536, 0, 458933, 65536, 1, 524469, 65536, 2, 393398, 65536, 0, 393399, 65536, 0, 393400, 131072, 0, 458936, 131072, 1, 524472, 131072, 2, 524471, 65536, 2, 524470, 65536, 2, 458934, 65536, 1, 458935, 65536, 1, 262357, 0, 6, 327893, 0, 7, 393429, 0, 8, 393453, 196608, 4, 393454, 262144, 4, 393455, 327680, 4, 458991, 327680, 5, 458992, 393216, 5, 524528, 393216, 6, 590064, 393216, 6, 655600, 393216, 6, 721136, 393216, 6, 786672, 393216, 6, 524524, 131072, 6, 590060, 131072, 6, 655596, 131072, 6, 721132, 131072, 6, 786668, 131072, 6, 458989, 196608, 5, 458988, 196608, 4, 786669, 262144, 6, 786670, 262144, 6, 786671, 262144, 6, 590063, 262144, 6, 524527, 262144, 6, 524526, 262144, 6, 458990, 262144, 6, 524525, 262144, 6, 590061, 262144, 6, 655597, 262144, 6, 721133, 262144, 6, 721134, 262144, 6, 655598, 262144, 6, 590062, 262144, 6, 655599, 262144, 6, 721135, 262144, 6)
+layer_1/name = "Terrain"
+layer_1/tile_data = PackedInt32Array(524286, 262144, 4, 524287, 262144, 4, 458752, 262144, 4, 458753, 262144, 4, 458754, 262144, 4, 458755, 262144, 4, 458756, 262144, 4, 458757, 196608, 5, 458758, 262144, 6, 458759, 262144, 6, 458760, 262144, 6, 458761, 262144, 6, 458762, 262144, 6, 458763, 262144, 6, 458764, 262144, 6, 458765, 262144, 6, 458766, 262144, 6, 458767, 262144, 6, 458768, 262144, 5, 458769, 262144, 5, 458770, 262144, 5, 458771, 262144, 5, 458772, 262144, 5, 393221, 196608, 4, 393222, 262144, 4, 393223, 262144, 4, 393224, 196608, 5, 393225, 262144, 5, 393226, 262144, 5, 393227, 262144, 5, 393228, 262144, 5, 393229, 262144, 5, 393230, 262144, 5, 393231, 262144, 5, 589822, 262144, 6, 589823, 262144, 6, 524288, 262144, 6, 524289, 262144, 6, 524290, 262144, 6, 524291, 262144, 6, 524292, 262144, 6, 524293, 262144, 6, 524294, 262144, 6, 524295, 262144, 6, 524296, 262144, 6, 524297, 262144, 6, 524298, 262144, 6, 524299, 262144, 6, 524300, 262144, 6, 524301, 262144, 6, 524302, 262144, 6, 524303, 262144, 6, 524304, 262144, 6, 524305, 262144, 6, 524306, 262144, 6, 524307, 262144, 6, 524308, 262144, 6, 589821, 262144, 6, 524285, 262144, 4, 327688, 196608, 4, 393232, 262144, 5, 327689, 262144, 4, 327690, 262144, 4, 327691, 262144, 4, 327692, 262144, 4, 327693, 262144, 4, 327694, 262144, 4, 327695, 262144, 4, 327696, 262144, 4, 327697, 262144, 4, 327698, 262144, 4, 327699, 262144, 4, 327700, 262144, 4, 327701, 327680, 4, 393237, 393216, 6, 458773, 393216, 6, 524309, 393216, 6, 393233, 262144, 6, 393234, 262144, 6, 393235, 262144, 6, 393236, 262144, 6, 262178, 196608, 4, 327714, 131072, 6, 393250, 131072, 6, 458786, 131072, 6, 524322, 131072, 6, 262179, 262144, 4, 262180, 262144, 4, 262181, 262144, 4, 262182, 262144, 4, 262183, 262144, 4, 262184, 262144, 4, 262185, 196608, 5, 196649, 196608, 4, 196652, 327680, 4, 262188, 393216, 6, 327724, 393216, 6, 393260, 393216, 6, 458796, 393216, 6, 524332, 393216, 6, 589868, 393216, 6, 196650, 262144, 4, 196651, 262144, 4, 327715, 262144, 6, 327716, 262144, 6, 327717, 262144, 6, 327718, 262144, 6, 327719, 262144, 6, 327720, 262144, 6, 327721, 262144, 6, 327722, 262144, 6, 327723, 262144, 6, 262186, 262144, 6, 262187, 262144, 6, 393251, 262144, 6, 393252, 262144, 6, 393253, 262144, 6, 393254, 262144, 6, 393255, 262144, 6, 393256, 262144, 6, 393257, 262144, 6, 393258, 262144, 6, 393259, 262144, 6, 458795, 262144, 6, 458794, 262144, 6, 458793, 262144, 6, 458792, 262144, 6, 458791, 262144, 6, 458790, 262144, 6, 458789, 262144, 6, 458788, 262144, 6, 458787, 262144, 6, 524323, 262144, 6, 524324, 262144, 6, 524325, 262144, 6, 524326, 262144, 6, 524327, 262144, 6, 524328, 262144, 6, 524329, 262144, 6, 524330, 262144, 6, 524331, 262144, 6, -196557, 131072, 6, -131021, 131072, 6, -65485, 131072, 6, 51, 131072, 6, 65587, 196608, 8, -196555, 393216, 6, -131019, 393216, 6, -65483, 393216, 6, 53, 393216, 6, 65589, 327680, 8, -196556, 262144, 6, -131020, 262144, 6, -65484, 262144, 6, 52, 262144, 6, 65588, 262144, 8, -262092, 262144, 6, -262093, 131072, 6, -262091, 393216, 6, 327731, 262144, 1, 327732, 327680, 1, 327733, 327680, 1, 327734, 327680, 1, 327735, 393216, 1, 327736, 65536, 2, 327739, 131072, 2, 327738, 65536, 2, 327737, 65536, 2, 262259, 196608, 4, 327795, 131072, 6, 393331, 131072, 6, 458867, 131072, 6, 524403, 131072, 6, 262260, 262144, 4, 262261, 262144, 4, 262262, 262144, 4, 262263, 262144, 4, 262264, 262144, 4, 262265, 262144, 4, 262266, 262144, 4, 262267, 327680, 4, 327803, 327680, 5, 327804, 262144, 4, 327805, 262144, 4, 327806, 262144, 4, 327807, 262144, 4, 327808, 262144, 4, 327809, 262144, 4, 327810, 262144, 4, 327811, 327680, 4, 393347, 393216, 6, 458883, 393216, 6, 524419, 393216, 6, 524404, 262144, 6, 524405, 262144, 6, 524406, 262144, 6, 524407, 262144, 6, 524408, 262144, 6, 524409, 262144, 6, 524410, 262144, 6, 524411, 262144, 6, 524412, 262144, 6, 524413, 262144, 6, 524414, 262144, 6, 524415, 262144, 6, 524416, 262144, 6, 524417, 262144, 6, 524418, 262144, 6, 393338, 262144, 6, 327802, 262144, 6, 327801, 262144, 6, 327800, 262144, 6, 327799, 262144, 6, 327798, 262144, 6, 327797, 262144, 6, 327796, 262144, 6, 393332, 262144, 6, 458868, 262144, 6, 458869, 262144, 6, 393333, 262144, 6, 393334, 262144, 6, 458870, 262144, 6, 458871, 262144, 6, 393335, 262144, 6, 393336, 262144, 6, 458872, 262144, 6, 458873, 262144, 6, 393337, 262144, 6, 458874, 262144, 6, 458875, 262144, 6, 393339, 262144, 6, 393340, 262144, 6, 458876, 262144, 6, 458877, 262144, 6, 393341, 262144, 6, 393342, 262144, 6, 458878, 262144, 6, 458879, 262144, 6, 393343, 262144, 6, 393344, 262144, 6, 458880, 262144, 6, 458881, 262144, 6, 393345, 262144, 6, 393346, 262144, 6, 458882, 262144, 6, 262281, 0, 4, 196749, 0, 6, 262285, 0, 7, 327821, 0, 8, 262289, 0, 7, 327825, 0, 8, 196753, 0, 6, 393430, 327680, 4, 458966, 393216, 6, 524502, 393216, 6, 590038, 393216, 6, 393429, 262144, 4, 393428, 262144, 4, 393427, 262144, 4, 393426, 262144, 4, 393425, 262144, 4, 393424, 262144, 4, 393423, 262144, 4, 393422, 196608, 4, 458958, 131072, 6, 524494, 131072, 6, 590030, 131072, 6, 590031, 262144, 6, 590032, 262144, 6, 590033, 262144, 6, 590034, 262144, 6, 590035, 262144, 6, 590036, 262144, 6, 590037, 262144, 6, 458962, 262144, 6, 458961, 262144, 6, 458960, 262144, 6, 458959, 262144, 6, 524495, 262144, 6, 524496, 262144, 6, 524497, 262144, 6, 524498, 262144, 6, 524499, 262144, 6, 458963, 262144, 6, 458964, 262144, 6, 524500, 262144, 6, 524501, 262144, 6, 458965, 262144, 6)
+layer_2/name = "decoration"
+layer_2/z_index = 1
 
 [node name="Goal" type="Area2D" parent="."]
-position = Vector2(7152, 251)
+position = Vector2(7631, 251)
 collision_layer = 2
 script = ExtResource("5_u3amf")
 next_level = "res://Scene/fases/fase2.tscn"
@@ -135,12 +108,6 @@ editor_draw_limits = true
 
 [node name="smoke" parent="." instance=ExtResource("10_eleav")]
 
-[node name="Cenarrot" parent="." instance=ExtResource("11_4oufi")]
-position = Vector2(115, 274)
-
-[node name="Cenarrot_gold" parent="." instance=ExtResource("12_4ylld")]
-position = Vector2(950, 165)
-
 [node name="death_zone" parent="." instance=ExtResource("13_fiyqn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
@@ -150,7 +117,7 @@ shape = SubResource("RectangleShape2D_6d30b")
 [node name="death_zone4" parent="." instance=ExtResource("13_fiyqn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone4"]
-position = Vector2(4912, 416.5)
+position = Vector2(5558, 348)
 shape = SubResource("RectangleShape2D_i2btn")
 
 [node name="death_zone5" parent="." instance=ExtResource("13_fiyqn")]
@@ -162,22 +129,25 @@ shape = SubResource("RectangleShape2D_1odqq")
 [node name="death_zone2" parent="." instance=ExtResource("13_fiyqn")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="death_zone2"]
-position = Vector2(1424, 413)
+position = Vector2(2559.5, 338)
 shape = SubResource("RectangleShape2D_esmdi")
 
 [node name="death_zone3" parent="." instance=ExtResource("13_fiyqn")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="death_zone3"]
-position = Vector2(889, 346)
+position = Vector2(895.5, 346)
 shape = SubResource("RectangleShape2D_ktl84")
-
-[node name="befly" parent="." instance=ExtResource("26_3ohhe")]
-position = Vector2(1024, 158)
 
 [node name="parede invisivel" type="StaticBody2D" parent="."]
 position = Vector2(15, 2)
 collision_layer = 3
 collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="parede invisivel"]
+light_mask = 2
+visibility_layer = 7
+position = Vector2(7802, 180)
+shape = SubResource("RectangleShape2D_3cc14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="parede invisivel"]
 light_mask = 2
@@ -200,15 +170,282 @@ color = Color(0.000870854, 0.218764, 0.389161, 1)
 script = ExtResource("19_xoylp")
 
 [node name="Espinho" parent="." instance=ExtResource("20_7cenp")]
-position = Vector2(6906, 227)
+position = Vector2(6906, 171)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_hx157")
-offset_left = 4992.0
-offset_top = 135.0
-offset_right = 6688.0
-offset_bottom = 369.0
-color = Color(0.240968, 0.250252, 0.400831, 0.375)
+[node name="fall_platform_small" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(1542, 227)
+
+[node name="fall_platform_small2" parent="." instance=ExtResource("19_5al5e")]
+position = Vector2(894, 238)
+
+[node name="fall_platform_small3" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(2035, 144)
+
+[node name="fall_platform_small4" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(2164, 173)
+
+[node name="fall_platform_small5" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(2284, 137)
+
+[node name="fall_platform_small6" parent="." instance=ExtResource("19_5al5e")]
+position = Vector2(2435, 203)
+
+[node name="fall_platform_small7" parent="." instance=ExtResource("21_nt3k0")]
+position = Vector2(2598, 149)
+
+[node name="fall_platform_small8" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(3095, 160)
+
+[node name="fall_platform_small9" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(3238, 125)
+
+[node name="fall_platform_small10" parent="." instance=ExtResource("19_5al5e")]
+position = Vector2(3414, 155)
+
+[node name="fall_platform_small11" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(4838, 203)
+
+[node name="fall_platform_small12" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(5031, 200)
+
+[node name="fall_platform_small13" parent="." instance=ExtResource("19_5al5e")]
+position = Vector2(5185, 284)
+
+[node name="fall_platform_small14" parent="." instance=ExtResource("21_nt3k0")]
+position = Vector2(5362, 233)
+
+[node name="fall_platform_small15" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(5554, 265)
+
+[node name="fall_platform_small16" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(6056, 242)
+
+[node name="fall_platform_small17" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(6175, 199)
+
+[node name="fall_platform_small18" parent="." instance=ExtResource("19_5al5e")]
+position = Vector2(6382, 240)
+
+[node name="fall_platform_small19" parent="." instance=ExtResource("18_i0327")]
+position = Vector2(7030, 185)
+
+[node name="fall_platform_small20" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(7183, 249)
+
+[node name="fall_platform_small21" parent="." instance=ExtResource("20_xln5u")]
+position = Vector2(7372, 259)
+
+[node name="inimigos" type="Node2D" parent="."]
+
+[node name="befly" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(1024, 158)
+
+[node name="Mordego" parent="inimigos" instance=ExtResource("20_a71cr")]
+position = Vector2(6630, 130)
+
+[node name="Caenha2" parent="inimigos" instance=ExtResource("22_nt3k0")]
+position = Vector2(5827, 250)
+
+[node name="Emburrako" parent="inimigos" instance=ExtResource("22_4nmmg")]
+position = Vector2(4529, 296)
+
+[node name="Espinho2" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(7568, 283)
+
+[node name="Espinho3" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(5442, 202)
+
+[node name="Espinho4" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(6104, 201)
+
+[node name="Espinho5" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(4462, 171)
+
+[node name="Espinho6" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(3580, 137)
+
+[node name="Espinho7" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(1617, 94)
+
+[node name="Espinho8" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(1617, 126)
+
+[node name="Espinho9" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(1617, 62)
+
+[node name="Espinho10" parent="inimigos" instance=ExtResource("20_7cenp")]
+position = Vector2(1617, 30)
+
+[node name="Caenha" parent="inimigos" instance=ExtResource("22_nt3k0")]
+position = Vector2(562, 216)
+speed = 5
+
+[node name="Emburrako2" parent="inimigos" instance=ExtResource("22_4nmmg")]
+position = Vector2(4400, 292)
+
+[node name="Emburrako3" parent="inimigos" instance=ExtResource("22_4nmmg")]
+position = Vector2(4655, 292)
+
+[node name="Mordego2" parent="inimigos" instance=ExtResource("20_a71cr")]
+position = Vector2(4925, 72)
+
+[node name="Emburrako4" parent="inimigos" instance=ExtResource("22_4nmmg")]
+position = Vector2(1705, 303)
+
+[node name="Emburrako5" parent="inimigos" instance=ExtResource("22_4nmmg")]
+position = Vector2(1969, 250)
+
+[node name="befly2" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(2825, 118)
+
+[node name="befly3" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(4368, 175)
+
+[node name="befly4" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(4423, 140)
+
+[node name="befly5" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(4439, 214)
+
+[node name="befly6" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(5439, 168)
+
+[node name="befly7" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(6785, 202)
+
+[node name="befly8" parent="inimigos" instance=ExtResource("26_3ohhe")]
+position = Vector2(7159, 246)
+
+[node name="Caenha3" parent="inimigos" instance=ExtResource("22_nt3k0")]
+position = Vector2(6836, 186)
+
+[node name="Caenha4" parent="inimigos" instance=ExtResource("22_nt3k0")]
+position = Vector2(3940, 185)
+speed = 5
+
+[node name="Mordego3" parent="inimigos" instance=ExtResource("20_a71cr")]
+position = Vector2(2852, 21)
+
+[node name="Mordego4" parent="inimigos" instance=ExtResource("20_a71cr")]
+position = Vector2(1266, 79)
+
+[node name="cenoura_dourada" type="Node2D" parent="."]
+
+[node name="Cenarrot_gold" parent="cenoura_dourada" instance=ExtResource("12_4ylld")]
+position = Vector2(1544, 89)
+
+[node name="Cenarrot_gold2" parent="cenoura_dourada" instance=ExtResource("12_4ylld")]
+position = Vector2(5395, 196)
+
+[node name="Cenarrot_gold3" parent="cenoura_dourada" instance=ExtResource("12_4ylld")]
+position = Vector2(6906, 132)
+
+[node name="cenouras" type="Node2D" parent="."]
+
+[node name="Cenarrot" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(115, 274)
+
+[node name="Cenarrot2" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(142, 274)
+
+[node name="Cenarrot3" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(216, 243)
+
+[node name="Cenarrot4" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(189, 243)
+
+[node name="Cenarrot5" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(291, 212)
+
+[node name="Cenarrot6" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(316, 212)
+
+[node name="Cenarrot7" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(339, 212)
+
+[node name="Cenarrot8" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(862, 202)
+
+[node name="Cenarrot9" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(928, 202)
+
+[node name="Cenarrot10" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1205, 183)
+
+[node name="Cenarrot11" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1238, 183)
+
+[node name="Cenarrot12" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1238, 183)
+
+[node name="Cenarrot13" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1271, 183)
+
+[node name="Cenarrot14" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1698, 214)
+
+[node name="Cenarrot15" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1811, 152)
+
+[node name="Cenarrot16" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1846, 152)
+
+[node name="Cenarrot17" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(1880, 152)
+
+[node name="Cenarrot18" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(2405, 164)
+
+[node name="Cenarrot19" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(2462, 164)
+
+[node name="Cenarrot20" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(2750, 56)
+
+[node name="Cenarrot21" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(2949, 56)
+
+[node name="Cenarrot22" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(3414, 122)
+
+[node name="Cenarrot23" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(3856, 182)
+
+[node name="Cenarrot24" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(3821, 182)
+
+[node name="Cenarrot25" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(3788, 182)
+
+[node name="Cenarrot26" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(4060, 214)
+
+[node name="Cenarrot27" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(4095, 214)
+
+[node name="Cenarrot28" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(4132, 215)
+
+[node name="Cenarrot29" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(5185, 245)
+
+[node name="Cenarrot30" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(5555, 222)
+
+[node name="Cenarrot31" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(6386, 203)
+
+[node name="Cenarrot32" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(6636, 247)
+
+[node name="Cenarrot33" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(6663, 247)
+
+[node name="Cenarrot34" parent="cenouras" instance=ExtResource("11_4oufi")]
+position = Vector2(6691, 247)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 0.592332, 0.650087, 1)
 
 [node name="menuPause" parent="." instance=ExtResource("18_monvr")]
 
