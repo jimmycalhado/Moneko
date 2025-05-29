@@ -11,6 +11,7 @@ events = [SubResource("InputEventAction_hx5ua")]
 
 [node name="menuPause" type="CanvasLayer"]
 process_mode = 3
+visible = false
 script = ExtResource("1_hx5ua")
 
 [node name="ColorRect" type="ColorRect" parent="."]

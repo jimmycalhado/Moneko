@@ -1,22 +1,22 @@
-[gd_scene load_steps=40 format=3 uid="uid://b2om8wera6o46"]
+[gd_scene load_steps=41 format=3 uid="uid://cqlogb6wqqvia"]
 
 [ext_resource type="Script" path="res://Scene/fases/test.gd" id="1_a5omn"]
-[ext_resource type="PackedScene" uid="uid://dul5cuisn4awx" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_oreon"]
-[ext_resource type="PackedScene" uid="uid://cfgcudfasuiua" path="res://Scene/Sistemas/game_ui.tscn" id="3_74cvv"]
-[ext_resource type="PackedScene" uid="uid://ok0htjx0wdlc" path="res://Scene/Sistemas/tile_map_fundo.tscn" id="4_axtn7"]
-[ext_resource type="PackedScene" uid="uid://dmn03v70se0j7" path="res://Scene/Sistemas/tile_map.tscn" id="4_y5sv6"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/parallax_background1.tscn" id="2_oreon"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/game_ui.tscn" id="3_74cvv"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/tile_map_fundo.tscn" id="4_axtn7"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/tile_map.tscn" id="4_y5sv6"]
 [ext_resource type="Script" path="res://Scripts/sistema/goal.gd" id="5_axtn7"]
 [ext_resource type="Texture2D" uid="uid://b5dtnbb5y54m8" path="res://Sprites/coletaveis/Finalizador de fase/placa.png" id="6_bicjv"]
 [ext_resource type="PackedScene" uid="uid://g0j2plpdk1f4" path="res://Scene/personagens/Moneko/moneko.tscn" id="7_carvm"]
 [ext_resource type="AudioStream" uid="uid://cqmia3fd5stx2" path="res://Sounds/fases/fase1.wav" id="8_nnkkm"]
-[ext_resource type="PackedScene" uid="uid://cfushdmccxy25" path="res://Scene/Sistemas/smoke.tscn" id="9_54jxo"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/smoke.tscn" id="9_54jxo"]
 [ext_resource type="PackedScene" uid="uid://bm4hcp1b407wl" path="res://Scene/coletaveis/cenarrot.tscn" id="10_1re3g"]
-[ext_resource type="PackedScene" uid="uid://bt2r4g3ed6jpr" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="11_uxayb"]
+[ext_resource type="PackedScene" path="res://Scene/coletaveis/cenarrot_gold.tscn" id="11_uxayb"]
 [ext_resource type="PackedScene" uid="uid://h8wq4tffwxkq" path="res://Scene/personagens/inimigos/Caenha/caenha.tscn" id="12_rif3g"]
 [ext_resource type="PackedScene" uid="uid://6ogmn4jjrmlq" path="res://Scene/personagens/inimigos/Emburrako/emburrako.tscn" id="13_2rn70"]
-[ext_resource type="PackedScene" uid="uid://dbuesnbqb75nf" path="res://Scene/Sistemas/reset.tscn" id="14_lstvk"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/reset.tscn" id="14_lstvk"]
 [ext_resource type="PackedScene" uid="uid://crj7ptl7mdaws" path="res://Scene/personagens/inimigos/Mordego/mordego.tscn" id="15_lnyt6"]
-[ext_resource type="PackedScene" uid="uid://c652oss1wska5" path="res://Scene/Sistemas/death_zone.tscn" id="16_8iqut"]
+[ext_resource type="PackedScene" path="res://Scene/Sistemas/death_zone.tscn" id="16_8iqut"]
 [ext_resource type="PackedScene" uid="uid://bktacxjgxeqbu" path="res://Scene/personagens/inimigos/Befly/befly.tscn" id="17_g1cel"]
 [ext_resource type="Script" path="res://Scripts/sistema/transition.gd" id="18_negpd"]
 [ext_resource type="Shader" uid="uid://cjksjyhtijt73" path="res://Shaders/transition.gdshader" id="19_xgtri"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cucc0jfd68rtj" path="res://Scene/personagens/inimigos/Espinho/Espinho.tscn" id="21_i4aqt"]
 [ext_resource type="AudioStream" uid="uid://bnbnjkh1w136a" path="res://Sounds/effects/bullet.mp3" id="22_bicjv"]
 [ext_resource type="PackedScene" uid="uid://b3l7o67oq2nbh" path="res://Scene/Sistemas/hitbox.tscn" id="23_carvm"]
+[ext_resource type="PackedScene" uid="uid://b135gwmxmj841" path="res://Scene/Sistemas/menu_pause.tscn" id="27_bicjv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27wy8"]
 radius = 24.0208
@@ -779,6 +780,8 @@ position = Vector2(1222, 279)
 
 [node name="Espinho6" parent="." instance=ExtResource("21_i4aqt")]
 position = Vector2(2383, 219)
+
+[node name="menuPause" parent="." instance=ExtResource("27_bicjv")]
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 [connection signal="body_entered" from="Emburrako6/detectarPlayer" to="Emburrako6" method="_on_detectar_player_body_entered"]
