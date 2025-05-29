@@ -35,8 +35,9 @@ texture = ExtResource("1_h4gey")
 centered = false
 
 [node name="morro_atras" type="Parallax2D" parent="."]
+scale = Vector2(1.2, 1.2)
 scroll_scale = Vector2(0.15, 1)
-scroll_offset = Vector2(300, 129)
+scroll_offset = Vector2(-300, 106)
 repeat_size = Vector2(600, 0)
 repeat_times = 3
 

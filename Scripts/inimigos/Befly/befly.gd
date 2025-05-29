@@ -12,18 +12,12 @@ func _on_player_detected(body):
 		activated = true
 		look_at(body.global_position)
 
-func _on_area_2d_body_exited(body):
-	moving = false
-
-var direction: Vector2 = Vector2.LEFT
-var activated: bool = false
 
 func _physics_process(delta):
 	if activated:
 		velocity.x = direction.normalized().x * speed
 	else:
 		velocity.x = 0
-
 
 	move_and_slide()
 
