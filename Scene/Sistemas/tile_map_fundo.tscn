@@ -123,7 +123,7 @@ sources/0 = SubResource("TileSetAtlasSource_un374")
 sources/1 = SubResource("TileSetAtlasSource_mgdwg")
 sources/3 = SubResource("TileSetAtlasSource_srfjm")
 
-[node name="TileMap2" type="TileMap"]
+[node name="TileMapFundo" type="TileMap"]
 z_index = -1
 tile_set = SubResource("TileSet_dtf3r")
 format = 2
